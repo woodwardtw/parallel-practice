@@ -1,1 +1,17 @@
 // This is an empty scss file for your custom styles - Please add your super duper awesome mega design styles here
+
+
+//GravityForm customizations
+
+#field_1_7 { 
+  	background-color: red;
+  }
+
+@media ( max-width: 500px ) {  
+  #field_1_7 { 
+  	order: 7; 
+  	background-color: orange;
+  }
+  grid-item:nth-child(2) { order: 3; }
+  grid-item:nth-child(3) { order: 2; }
+}
