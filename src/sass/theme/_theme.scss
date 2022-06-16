@@ -3,15 +3,13 @@
 
 //GravityForm customizations
 
-#field_1_7 { 
-  	background-color: red;
-  }
+#gform_fields_1 .gfield:nth-child(even) {
+	background-color: red;
+}
 
-@media ( max-width: 500px ) {  
-  #field_1_7 { 
+
+@media ( max-width: 645px ) {  
+  #field_1_7, #field_1_8, #field_1_9, #field_1_10, #field_1_11, #field_1_13 { 
   	order: 7; 
-  	background-color: orange;
   }
-  grid-item:nth-child(2) { order: 3; }
-  grid-item:nth-child(3) { order: 2; }
 }
