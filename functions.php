@@ -44,3 +44,13 @@ if ( class_exists( 'Jetpack' ) ) {
 foreach ( $understrap_includes as $file ) {
 	require_once get_theme_file_path( $understrap_inc_dir . $file );
 }
+
+
+function pp_make_students(){
+	if ( get_option( 'custom_roles_version' ) < 1 ) {
+        add_role( 'pp_student', 'Parallel Practicer', get_role( 'author' )->capabilities);
+        update_option( 'custom_roles_version', 1 );
+    }
+}
+
+add_action( 'init', 'pp_make_students' );
