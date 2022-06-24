@@ -2,8 +2,14 @@
 
 
 //single student
+.accordion-body h2 {
+	font-size: 1.4rem;
+}
+
 .accordion-body div {
 	width: 45%;
+	margin: 7px auto;
+	padding: 5px 10px;
 }
 
 .accordion-button {
@@ -12,7 +18,26 @@
 	box-shadow: none;
 }
 
+.focus, .hmm {
+	background-color: $light-blue;
+}
+
+#logButton {
+	position: fixed;
+	bottom: 30px;
+	right: 30px;
+}
+
 //GravityForm customizations
+#gform_submit_button_1 {
+	width: 85%;
+	margin: 10px auto;
+	background-color: $primary;
+	color: #fff;
+	font-size: 1.3rem;
+	border-radius: 4px;
+}
+
 
 #gform_fields_1 .gfield:nth-child(even) {
 	background-color: red;
