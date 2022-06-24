@@ -99,7 +99,7 @@ function pp_table_maker($entry, $key){
 	    </h2>
         <div id='collapse-{$key}' class='accordion-collapse collapse {$state}' aria-labelledby='heading-{$key}' data-bs-parent='#practice-data'>
   			<div class='accordion-body'>
-				<div class='row'>
+				<div class='row log'>
 					<div class='col-md-6 reg-log'>
 						<div class='time'>
 							<h2>⏰ {$lang_practice} minutes</h2>							
@@ -108,9 +108,18 @@ function pp_table_maker($entry, $key){
 							<h2>Focus</h2>
 							{$lang_focus}
 						</div>
-						<div class='yea'>{$lang_yea}</div>
-						<div class='hmm'>{$lang_hmm}</div>
-						<div class='strat'>{$lang_strat}</div>
+						<div class='yea'>
+							<h2>🥳 yeaaa</h2>						
+							{$lang_yea}
+						</div>
+						<div class='hmm'>
+							<h2>🤔 hmmmm</h2>
+							{$lang_hmm}
+						</div>
+						<div class='strat'>
+							<h2>Strategy</h2>
+							{$lang_strat}
+						</div>
 					</div>
 					<div class='col-md-6 alt-log'>
 						<div class='time'>
@@ -120,9 +129,18 @@ function pp_table_maker($entry, $key){
 							<h2>Focus</h2>						
 							{$alt_focus}
 						</div>
-						<div class='yea'>{$alt_yea}</div>
-						<div class='hmm'>{$alt_hmm}</div>
-						<div class='strat'>{$alt_strat}</div>
+						<div class='yea'>
+							<h2>🥳</h2>
+							{$alt_yea}
+						</div>
+						<div class='hmm'>
+							<h2>🤔 hmmmm</h2>						
+							{$alt_hmm}
+						</div>
+						<div class='strat'>
+							<h2>Strategy</h2>
+							{$alt_strat}
+						</div>
 					</div>
 				</div>
 			</div>
