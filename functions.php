@@ -67,6 +67,14 @@ function pp_practice_log(){
 }
 
 
+function pp_accordion_state($key){
+	if($key === 0){
+		return 'show';
+	} else {
+		return '';
+	}
+}
+
 function pp_table_maker($entry, $key){
 	//var_dump($entry);
 	$date = $entry['date_created'];
@@ -80,6 +88,7 @@ function pp_table_maker($entry, $key){
 	$alt_yea = $entry[9];
 	$alt_hmm = $entry[10];
 	$alt_strat = $entry[11];
+	$state = pp_accordion_state($key);
 	echo "
 	<div class='accordion' id='practice-data'>
 	 <div class='accordion-item'>
@@ -88,19 +97,29 @@ function pp_table_maker($entry, $key){
 	        Entry {$date}
 	      </button>
 	    </h2>
-        <div id='collapse-{$key}' class='accordion-collapse collapse' aria-labelledby='heading-{$key}' data-bs-parent='#practice-data'>
+        <div id='collapse-{$key}' class='accordion-collapse collapse {$state}' aria-labelledby='heading-{$key}' data-bs-parent='#practice-data'>
   			<div class='accordion-body'>
 				<div class='row'>
 					<div class='col-md-6 reg-log'>
-						<div class='time'>{$lang_practice}</div>
-						<div class='focus'>{$lang_focus}</div>
+						<div class='time'>
+							<h2>⏰ {$lang_practice} minutes</h2>							
+						</div>
+						<div class='focus'>
+							<h2>Focus</h2>
+							{$lang_focus}
+						</div>
 						<div class='yea'>{$lang_yea}</div>
 						<div class='hmm'>{$lang_hmm}</div>
 						<div class='strat'>{$lang_strat}</div>
 					</div>
 					<div class='col-md-6 alt-log'>
-						<div class='time'>{$alt_practice}</div>
-						<div class='focus'>{$alt_focus}</div>
+						<div class='time'>
+							<h2>⏰ {$alt_practice} minutes</h2>							
+						</div>
+						<div class='focus'>
+							<h2>Focus</h2>						
+							{$alt_focus}
+						</div>
 						<div class='yea'>{$alt_yea}</div>
 						<div class='hmm'>{$alt_hmm}</div>
 						<div class='strat'>{$alt_strat}</div>
