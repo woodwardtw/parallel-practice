@@ -12,14 +12,14 @@
 	padding: 5px 10px;
 }
 
-.accordion-button {
-	border: 1px solid #efefef;
+.accordion-button, .accordion-item:first-of-type .accordion-button {
 	border-radius: 0;
 	box-shadow: none;
 }
 
-.accordion-item:first-of-type .accordion-button {
+.accordion-item:first-of-type {
 	border-radius: 0;
+	border: 1px solid #efefef;
 }
 
 .accordion-button:not(.collapsed) {
