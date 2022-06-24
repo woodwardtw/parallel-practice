@@ -16554,9 +16554,21 @@ figure.woocommerce-product-gallery__wrapper {
 }
 
 .accordion-button {
-  border: 1px solid #424242;
+  border: 1px solid #efefef;
   border-radius: 0;
   box-shadow: none;
+}
+
+.accordion-item:first-of-type .accordion-button {
+  border-radius: 0;
+}
+
+.accordion-button:not(.collapsed) {
+  box-shadow: none;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #e5f1fa;
 }
 
 .focus, .hmm {
