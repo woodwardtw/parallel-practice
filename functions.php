@@ -61,22 +61,13 @@ function pp_practice_log(){
   	$sorting         = array();
   	$paging          = array( 'offset' => 0, 'page_size' => 500);
   	$entries = GFAPI::get_entries($form_id, $search_criteria, $sorting, $paging, $total_count );
-  	echo "<table>";
-  	echo "<tr>
-		    <th>Time</th>
-		    <th>Focus</th>
-		    <th>Yea</th>
-		    <th>Hmm</th>
-		    <th>Strategy</th>
-		  </tr>";
 	foreach ($entries as $key => $value) {  
-		pp_table_maker($value);
+		pp_table_maker($value, $key);
 	}
-	echo "</table>";
 }
 
 
-function pp_table_maker($entry){
+function pp_table_maker($entry, $key){
 	$lang_practice = $entry[1];
 	$lang_focus = $entry[3];
 	$lang_yea = $entry[4];
@@ -88,19 +79,32 @@ function pp_table_maker($entry){
 	$alt_hmm = $entry[10];
 	$alt_strat = $entry[11];
 	echo "
-		<tr class='lang-row'>
-			<td>{$lang_practice}</td>
-			<td>{$lang_focus}</td>
-			<td>{$lang_yea}</td>
-			<td>{$lang_hmm}</td>
-			<td>{$lang_strat}</td>
-		</tr>
-		<tr class='alt-row'>
-			<td>{$alt_practice}</td>
-			<td>{$alt_focus}</td>
-			<td>{$alt_yea}</td>
-			<td>{$alt_hmm}</td>
-			<td>{$alt_strat}</td>
-		</tr>
+	<div class='accordion' id='practice-data'>
+	 <div class='accordion-item'>
+	    <h2 class='accordion-header' id='heading-{$key}'>
+	      <button class='accordion-button' type='button' data-bs-toggle='collapse' data-bs-target='#collapse-{$key}' aria-expanded='false' aria-controls='collapse-{$key}'>
+	        Entry
+	      </button>
+	    </h2>
+        <div id='collapse-{$key}' class='accordion-collapse collapse' aria-labelledby='heading-{$key}' data-bs-parent='#practice-data'>
+  			<div class='accordion-body'>
+				<div class='row'>
+					<div class='col-md-6'>
+						<div>{$lang_practice}</div>
+						<div>{$lang_focus}</div>
+						<div>{$lang_yea}</div>
+						<div>{$lang_hmm}</div>
+						<div>{$lang_strat}</div>
+					</div>
+					<div class='col-md-6'>
+						<div>{$alt_practice}</div>
+						<div>{$alt_focus}</div>
+						<div>{$alt_yea}</div>
+						<div>{$alt_hmm}</div>
+						<div>{$alt_strat}</div>
+					</div>
+				</div>
+			</div>
+	</div>
 	";
 }
