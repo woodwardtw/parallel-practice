@@ -54,3 +54,14 @@ function pp_make_students(){
 }
 
 add_action( 'init', 'pp_make_students' );
+
+function pp_practice_log(){
+	$form_id = 1;//FORM ID
+	$search_criteria = array();
+  	$sorting         = array();
+  	$paging          = array( 'offset' => 0, 'page_size' => 500);
+  	$entries = GFAPI::get_entries($form_id, $search_criteria, $sorting, $paging, $total_count );
+	foreach ($entries as $key => $value) {  
+		var_dump($value);
+	}
+}
