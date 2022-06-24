@@ -62,6 +62,13 @@ function pp_practice_log(){
   	$paging          = array( 'offset' => 0, 'page_size' => 500);
   	$entries = GFAPI::get_entries($form_id, $search_criteria, $sorting, $paging, $total_count );
   	echo "<table>";
+  	echo "<tr>
+		    <th>Time</th>
+		    <th>Focus</th>
+		    <th>Yea</th>
+		    <th>Hmm</th>
+		    <th>Strategy</th>
+		  </tr>";
 	foreach ($entries as $key => $value) {  
 		pp_table_maker($value);
 	}
@@ -81,13 +88,19 @@ function pp_table_maker($entry){
 	$alt_hmm = $entry[10];
 	$alt_strat = $entry[11];
 	echo "
-		<tr>
+		<tr class='lang-row'>
 			<td>{$lang_practice}</td>
 			<td>{$lang_focus}</td>
+			<td>{$lang_yea}</td>
+			<td>{$lang_hmm}</td>
+			<td>{$lang_strat}</td>
 		</tr>
-		<tr>
+		<tr class='alt-row'>
 			<td>{$alt_practice}</td>
 			<td>{$alt_focus}</td>
+			<td>{$alt_yea}</td>
+			<td>{$alt_hmm}</td>
+			<td>{$alt_strat}</td>
 		</tr>
 	";
 }
