@@ -68,6 +68,8 @@ function pp_practice_log(){
 
 
 function pp_table_maker($entry, $key){
+	//var_dump($entry);
+	$date = $entry['date_created'];
 	$lang_practice = $entry[1];
 	$lang_focus = $entry[3];
 	$lang_yea = $entry[4];
@@ -83,25 +85,25 @@ function pp_table_maker($entry, $key){
 	 <div class='accordion-item'>
 	    <h2 class='accordion-header' id='heading-{$key}'>
 	      <button class='accordion-button' type='button' data-bs-toggle='collapse' data-bs-target='#collapse-{$key}' aria-expanded='false' aria-controls='collapse-{$key}'>
-	        Entry
+	        Entry {$date}
 	      </button>
 	    </h2>
         <div id='collapse-{$key}' class='accordion-collapse collapse' aria-labelledby='heading-{$key}' data-bs-parent='#practice-data'>
   			<div class='accordion-body'>
 				<div class='row'>
-					<div class='col-md-6'>
-						<div>{$lang_practice}</div>
-						<div>{$lang_focus}</div>
-						<div>{$lang_yea}</div>
-						<div>{$lang_hmm}</div>
-						<div>{$lang_strat}</div>
+					<div class='col-md-6 reg-log'>
+						<div class='time'>{$lang_practice}</div>
+						<div class='focus'>{$lang_focus}</div>
+						<div class='yea'>{$lang_yea}</div>
+						<div class='hmm'>{$lang_hmm}</div>
+						<div class='strat'>{$lang_strat}</div>
 					</div>
-					<div class='col-md-6'>
-						<div>{$alt_practice}</div>
-						<div>{$alt_focus}</div>
-						<div>{$alt_yea}</div>
-						<div>{$alt_hmm}</div>
-						<div>{$alt_strat}</div>
+					<div class='col-md-6 alt-log'>
+						<div class='time'>{$alt_practice}</div>
+						<div class='focus'>{$alt_focus}</div>
+						<div class='yea'>{$alt_yea}</div>
+						<div class='hmm'>{$alt_hmm}</div>
+						<div class='strat'>{$alt_strat}</div>
 					</div>
 				</div>
 			</div>
