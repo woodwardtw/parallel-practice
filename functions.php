@@ -61,9 +61,11 @@ function pp_practice_log(){
   	$sorting         = array();
   	$paging          = array( 'offset' => 0, 'page_size' => 500);
   	$entries = GFAPI::get_entries($form_id, $search_criteria, $sorting, $paging, $total_count );
+  	echo "<div class='accordion' id='practice-data'>";
 	foreach ($entries as $key => $value) {  
 		pp_table_maker($value, $key);
 	}
+	echo "</div>";
 }
 
 
@@ -90,14 +92,13 @@ function pp_table_maker($entry, $key){
 	$alt_strat = $entry[11];
 	$state = pp_accordion_state($key);
 	echo "
-	<div class='accordion' id='practice-data'>
 		<div class='accordion-item'>
-	    <h2 class='accordion-header' id='heading-{$key}'>
-	      <button class='accordion-button' type='button' data-bs-toggle='collapse' data-bs-target='#collapse-{$key}' aria-expanded='false' aria-controls='collapse-{$key}'>
-	        Entry {$date}
-	      </button>
-	    </h2>
-        <div id='collapse-{$key}' class='accordion-collapse collapse {$state}' aria-labelledby='heading-{$key}' data-bs-parent='#practice-data'>
+		    <h2 class='accordion-header' id='heading-{$key}'>
+		      <button class='accordion-button' type='button' data-bs-toggle='collapse' data-bs-target='#collapse-{$key}' aria-expanded='false' aria-controls='collapse-{$key}'>
+		        Entry {$date}
+		      </button>
+		    </h2>
+        	<div id='collapse-{$key}' class='accordion-collapse collapse {$state}' aria-labelledby='heading-{$key}' data-bs-parent='#practice-data'>
   			<div class='accordion-body d-flex justify-content-between flex-wrap'>				
 				<div class='time'>
 					<h2>⏰ {$lang_practice} minutes</h2>							
