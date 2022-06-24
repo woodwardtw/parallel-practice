@@ -16543,12 +16543,31 @@ figure.woocommerce-product-gallery__wrapper {
   clip: auto;
 }
 
+.accordion-body div {
+  width: 45%;
+}
+
+.accordion-button {
+  border: 1px solid #424242;
+  border-radius: 0;
+  box-shadow: none;
+}
+
 #gform_fields_1 .gfield:nth-child(even) {
   background-color: red;
 }
 
 @media (max-width: 645px) {
   #field_1_7, #field_1_8, #field_1_9, #field_1_10, #field_1_11, #field_1_13 {
+    -ms-flex-order: 7;
+    order: 7;
+  }
+
+  .accordion-body div {
+    width: 95%;
+  }
+
+  .alt.time, .alt.yea, .alt.hmm, .alt.focus, .alt.strat {
     -ms-flex-order: 7;
     order: 7;
   }
