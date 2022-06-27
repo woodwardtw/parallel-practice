@@ -38,6 +38,9 @@ if ( ! function_exists( 'understrap_scripts' ) ) {
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 			wp_enqueue_script( 'comment-reply' );
 		}
+		if (is_singular( array( 'student' ))){
+			wp_enqueue_script('google-charts', 'https://www.gstatic.com/charts/loader.js', array(), '1', true);
+		}
 	}
 } // End of if function_exists( 'understrap_scripts' ).
 
