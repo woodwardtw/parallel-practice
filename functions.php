@@ -156,9 +156,22 @@ function pp_table_maker($entry, $key){
 	//pp_update_gfentry();
 }
 
+add_action( 'gform_after_submission_3', 'pp_update_gfentry', 10, 2 );
 
-
-function pp_update_gfentry(){
-	$entry_id = 5;
-	GFAPI::update_entry_field( $entry_id, 2, 66 );
+function pp_update_gfentry($entry, $form){
+	$entry_id = $entry[15];
+	$lang_practice = $entry[1];
+	$lang_focus = $entry[3];
+	$lang_yea = $entry[4];
+	$lang_hmm = $entry[5];
+	$lang_strat = $entry[6];
+	$alt_practice = $entry[7];
+	$alt_focus = $entry[8];
+	$alt_yea = $entry[9];
+	$alt_hmm = $entry[10];
+	$alt_strat = $entry[11];
+	GFAPI::update_entry_field( $entry_id, 1, $lang_practice );
+	GFAPI::update_entry_field( $entry_id, 3, $lang_focus );
+	GFAPI::update_entry_field( $entry_id, 4, $lang_yea );
+	GFAPI::update_entry_field( $entry_id, 5, $lang_hmm );
 }

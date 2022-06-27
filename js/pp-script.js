@@ -72,7 +72,9 @@ editButtons.forEach((button) => {
 	  let althmm = button.dataset.althmm;
 
 	  let strategy = button.dataset.strat;
-	  let altstrategy = button.dataset.altstrat;	  		    
+	  let altstrategy = button.dataset.altstrat;
+
+	  let entryid = button.dataset.entryid;	  		    
 
 	  let formPractice = document.querySelector('#input_3_1');
 	  let formAltPractice = document.querySelector('#input_3_7');
@@ -87,7 +89,9 @@ editButtons.forEach((button) => {
 	  let formAltHmm = document.querySelector('#input_3_10');	
 
 	  let formStrategy = document.querySelector('#input_3_6');
-	  let formAltStrategy = document.querySelector('#input_3_11');	  	     
+	  let formAltStrategy = document.querySelector('#input_3_11');	
+
+	  let formEntryId = document.querySelector('#input_3_15');  	     
 	  
 	  formPractice.value = practice;
 	  formAltPractice.value = altpractice;
@@ -104,6 +108,7 @@ editButtons.forEach((button) => {
 	  formStrategy.value = strategy;
 	  formAltStrategy.value = altstrategy; 	  
 
+	  formEntryId.value = entryid;
 	})
 
 })
