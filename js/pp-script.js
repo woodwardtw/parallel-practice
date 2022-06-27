@@ -54,17 +54,29 @@ if(document.getElementById('chart')){
 
 }
 
-let editButtons = document.querySelectorAll('.edit-entry');
-console.log(editButtons)
+const editButtons = document.querySelectorAll('.edit-entry');
 editButtons.forEach((button) => {
-	button.addEventListener('show.bs.modal', function (event) {
+	button.addEventListener('click', function (event) {
 		console.log(event)
-	  // Button that triggered the modal
-	  let button = event.relatedTarget
 	  // Extract info from data-bs-* attributes
-	  let practice = button.getAttribute('data-practice')
-	  console.log(practice)
-	 
+	  let practice = button.dataset.practice;
+	  let altpractice = button.dataset.altpractice;
+	  
+	  let focus = button.dataset.focus;
+	  let altfocus = button.dataset.altfocus;
+
+	  let formPractice = document.querySelector('#input_3_1');
+	  let formAltPractice = document.querySelector('#input_3_7');
+	  
+	  let formFocus = document.querySelector('#input_3_3');
+	  let formAltFocus = document.querySelector('#input_3_8');	  
+	  
+	  formPractice.value = practice;
+	  formAltPractice.value = altpractice;
+
+	  formFocus.value = focus;
+	  formAltFocus.value = altfocus;
+
 	})
 
 })
