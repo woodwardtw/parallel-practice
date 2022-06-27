@@ -18,7 +18,7 @@ defined( 'ABSPATH' ) || exit;
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
-
+		<div id="chart"></div>
 		<?php
 		the_content();
 		pp_practice_log();
