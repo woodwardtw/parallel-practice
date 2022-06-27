@@ -41,3 +41,18 @@ if(document.getElementById('chart')){
       }
 
 }
+
+let entries = document.querySelectorAll('.accordion-item')
+var chartData = [
+	['Date', 'Practice' , 'Alt Practices']
+];
+
+entries.forEach((entry) => {
+  console.log(entry.dataset.pdate)
+  let theDate = entry.datatset.pdate;
+  let entryPractice = entry.dataset.practice;
+  let altPractice = entry.dataset.alt;
+  let eventData = [theDate, entryPractice, altPractice];
+  chartData.push(eventData);
+  console.log(chartData);
+});

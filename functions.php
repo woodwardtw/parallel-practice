@@ -92,13 +92,13 @@ function pp_table_maker($entry, $key){
 	$alt_strat = $entry[11];
 	$state = pp_accordion_state($key);
 	echo "
-		<div class='accordion-item'>
+		<div class='accordion-item' data-pdate='{$date}' data-practice='{$lang_practice}' data-alt='{$alt_practice}' >
 		    <h2 class='accordion-header' id='heading-{$key}'>
 		      <button class='accordion-button' type='button' data-bs-toggle='collapse' data-bs-target='#collapse-{$key}' aria-expanded='false' aria-controls='collapse-{$key}'>
 		        Entry {$date}
 		      </button>
 		    </h2>
-        	<div id='collapse-{$key}' data-date='{$date}' class='accordion-collapse collapse {$state}' aria-labelledby='heading-{$key}' data-bs-parent='#practice-data'>
+        	<div id='collapse-{$key}' class='accordion-collapse collapse {$state}' aria-labelledby='heading-{$key}' data-bs-parent='#practice-data'>
   			<div class='accordion-body d-flex justify-content-between flex-wrap'>				
 				<div class='time'>
 					<h2>⏰ {$lang_practice} minutes</h2>							
