@@ -79,7 +79,7 @@ function pp_accordion_state($key){
 
 function pp_table_maker($entry, $key){
 	//var_dump($entry);
-	$date = $entry['date_created'];
+	$date = substr($entry['date_created'], 0,10);
 	$lang_practice = $entry[1];
 	$lang_focus = $entry[3];
 	$lang_yea = $entry[4];
@@ -98,7 +98,7 @@ function pp_table_maker($entry, $key){
 		        Entry {$date}
 		      </button>
 		    </h2>
-        	<div id='collapse-{$key}' class='accordion-collapse collapse {$state}' aria-labelledby='heading-{$key}' data-bs-parent='#practice-data'>
+        	<div id='collapse-{$key}' data-date='{$date}' class='accordion-collapse collapse {$state}' aria-labelledby='heading-{$key}' data-bs-parent='#practice-data'>
   			<div class='accordion-body d-flex justify-content-between flex-wrap'>				
 				<div class='time'>
 					<h2>⏰ {$lang_practice} minutes</h2>							
