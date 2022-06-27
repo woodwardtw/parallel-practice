@@ -66,7 +66,13 @@ editButtons.forEach((button) => {
 	  let altfocus = button.dataset.altfocus;
 
 	  let yea = button.dataset.yea;
-	  let altyea = button.dataset.altyea;	  
+	  let altyea = button.dataset.altyea;
+
+	  let hmm = button.dataset.hmm;
+	  let althmm = button.dataset.althmm;
+
+	  let strategy = button.dataset.strat;
+	  let altstrategy = button.dataset.altstrat;	  		    
 
 	  let formPractice = document.querySelector('#input_3_1');
 	  let formAltPractice = document.querySelector('#input_3_7');
@@ -75,7 +81,13 @@ editButtons.forEach((button) => {
 	  let formAltFocus = document.querySelector('#input_3_8');	
 
 	  let formYea = document.querySelector('#input_3_4');
-	  let formAltYea = document.querySelector('#input_3_9');	    
+	  let formAltYea = document.querySelector('#input_3_9');
+
+	  let formHmm = document.querySelector('#input_3_5');
+	  let formAltHmm = document.querySelector('#input_3_10');	
+
+	  let formStrategy = document.querySelector('#input_3_6');
+	  let formAltStrategy = document.querySelector('#input_3_11');	  	     
 	  
 	  formPractice.value = practice;
 	  formAltPractice.value = altpractice;
@@ -84,7 +96,13 @@ editButtons.forEach((button) => {
 	  formAltFocus.value = altfocus;
 
 	  formYea.value = yea;
-	  formAltYea.value = altyea;	  
+	  formAltYea.value = altyea;	 
+
+	  formHmm.value = hmm;
+	  formAltHmm.value = althmm; 
+
+	  formStrategy.value = strategy;
+	  formAltStrategy.value = altstrategy; 	  
 
 	})
 
