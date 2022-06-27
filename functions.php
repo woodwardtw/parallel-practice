@@ -153,8 +153,9 @@ function pp_table_maker($entry, $key){
 		</div>
 	</div>
 	";
-	pp_update_gfentry();
+	//pp_update_gfentry();
 }
+
 
 
 function pp_update_gfentry(){

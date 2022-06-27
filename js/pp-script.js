@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function(){
 	  let altPractice = Math.round(entry.dataset.alt);
 	  let eventData = [theDate, entryPractice, altPractice];
 	  chartData.push(eventData);
-	  console.log(chartData);
+	  //console.log(chartData);
 });
 
 
@@ -54,6 +54,25 @@ if(document.getElementById('chart')){
 
 }
 
+let editButtons = document.querySelectorAll('.edit-entry');
+console.log(editButtons)
+editButtons.forEach((button) => {
+	button.addEventListener('show.bs.modal', function (event) {
+		console.log(event)
+	  // Button that triggered the modal
+	  let button = event.relatedTarget
+	  // Extract info from data-bs-* attributes
+	  let practice = button.getAttribute('data-practice')
+	  console.log(practice)
+	 
+	})
+
+})
+
 
 });
+
+
+
+
 
