@@ -174,4 +174,11 @@ function pp_update_gfentry($entry, $form){
 	GFAPI::update_entry_field( $entry_id, 3, $lang_focus );
 	GFAPI::update_entry_field( $entry_id, 4, $lang_yea );
 	GFAPI::update_entry_field( $entry_id, 5, $lang_hmm );
+	GFAPI::update_entry_field( $entry_id, 6, $lang_strat );
+	GFAPI::update_entry_field( $entry_id, 7, $alt_practice );
+	GFAPI::update_entry_field( $entry_id, 8, $alt_focus );
+	GFAPI::update_entry_field( $entry_id, 9, $alt_yea );
+	GFAPI::update_entry_field( $entry_id, 10, $alt_hmm );
+	GFAPI::update_entry_field( $entry_id, 11, $alt_strat );	
+
 }
