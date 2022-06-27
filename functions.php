@@ -184,7 +184,7 @@ function pp_update_gfentry($entry, $form){
 		GFAPI::update_entry_field( $entry_id, 9, $alt_yea );
 		GFAPI::update_entry_field( $entry_id, 10, $alt_hmm );
 		GFAPI::update_entry_field( $entry_id, 11, $alt_strat );	
-		//GFAPI::delete_entry($entry['id']);//auto delete 
+		GFAPI::delete_entry($entry['id']);//auto delete so we don't end up with duplicates
 	} 	
 
 }
