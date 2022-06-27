@@ -149,7 +149,15 @@ function pp_table_maker($entry, $key){
 					{$alt_strat}
 				</div>
 			</div>
+			<button type='button' data-bs-toggle='modal' data-bs-target='#editEntry' class='btn btn-primary edit-entry' data-entryid='{$entry_id}' data-practice='{$lang_practice}' data-focus ='{$lang_focus}' data-yea='{$lang_yea}' data-hmm='{$lang_hmm}' data-strat='{$lang_strat}' data-altpractice='{$alt_practice}' data-altfocus ='{$alt_focus}' data-altyea='{$alt_yea}' data-althmm='{$alt_hmm}' data-altstrat='{$alt_strat}'>Edit</button>
 		</div>
 	</div>
 	";
+	pp_update_gfentry();
+}
+
+
+function pp_update_gfentry(){
+	$entry_id = 5;
+	GFAPI::update_entry_field( $entry_id, 2, 66 );
 }
