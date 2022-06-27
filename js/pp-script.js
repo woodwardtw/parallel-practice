@@ -57,7 +57,6 @@ if(document.getElementById('chart')){
 const editButtons = document.querySelectorAll('.edit-entry');
 editButtons.forEach((button) => {
 	button.addEventListener('click', function (event) {
-		console.log(event)
 	  // Extract info from data-bs-* attributes
 	  let practice = button.dataset.practice;
 	  let altpractice = button.dataset.altpractice;
@@ -76,22 +75,22 @@ editButtons.forEach((button) => {
 
 	  let entryid = button.dataset.entryid;	  		    
 
-	  let formPractice = document.querySelector('#input_3_1');
-	  let formAltPractice = document.querySelector('#input_3_7');
+	  let formPractice = document.querySelector('#input_1_1');
+	  let formAltPractice = document.querySelector('#input_1_7');
 	  
-	  let formFocus = document.querySelector('#input_3_3');
-	  let formAltFocus = document.querySelector('#input_3_8');	
+	  let formFocus = document.querySelector('#input_1_3');
+	  let formAltFocus = document.querySelector('#input_1_8');	
 
-	  let formYea = document.querySelector('#input_3_4');
-	  let formAltYea = document.querySelector('#input_3_9');
+	  let formYea = document.querySelector('#input_1_4');
+	  let formAltYea = document.querySelector('#input_1_9');
 
-	  let formHmm = document.querySelector('#input_3_5');
-	  let formAltHmm = document.querySelector('#input_3_10');	
+	  let formHmm = document.querySelector('#input_1_5');
+	  let formAltHmm = document.querySelector('#input_1_10');	
 
-	  let formStrategy = document.querySelector('#input_3_6');
-	  let formAltStrategy = document.querySelector('#input_3_11');	
+	  let formStrategy = document.querySelector('#input_1_6');
+	  let formAltStrategy = document.querySelector('#input_1_11');	
 
-	  let formEntryId = document.querySelector('#input_3_15');  	     
+	  let formEntryId = document.querySelector('#input_1_15');  	     
 	  
 	  formPractice.value = practice;
 	  formAltPractice.value = altpractice;

@@ -50,7 +50,7 @@ defined( 'ABSPATH' ) || exit;
 		    <div class="modal-content">
 		      <div class="modal-body">
 		      	<h2 id="edit-practice-title">Edit Practice Logger</h2>
-		       <?php echo do_shortcode('[gravityform id="3" title="false" description="false" ajax="true"]')?>
+		       <?php //echo do_shortcode('[gravityform id="1" title="false" description="false" ajax="true"]')?>
 		      </div>
 		      <div class="modal-footer">
 		        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

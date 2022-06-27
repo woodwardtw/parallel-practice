@@ -55,6 +55,8 @@ function pp_make_students(){
 
 add_action( 'init', 'pp_make_students' );
 
+
+//Form entry display for student page
 function pp_practice_log(){
 	$form_id = 1;//FORM ID
 	$search_criteria = array();
@@ -149,36 +151,40 @@ function pp_table_maker($entry, $key){
 					{$alt_strat}
 				</div>
 			</div>
-			<button type='button' data-bs-toggle='modal' data-bs-target='#editEntry' class='btn btn-primary edit-entry' data-entryid='{$entry_id}' data-practice='{$lang_practice}' data-focus ='{$lang_focus}' data-yea='{$lang_yea}' data-hmm='{$lang_hmm}' data-strat='{$lang_strat}' data-altpractice='{$alt_practice}' data-altfocus ='{$alt_focus}' data-altyea='{$alt_yea}' data-althmm='{$alt_hmm}' data-altstrat='{$alt_strat}'>Edit</button>
+			<button type='button' data-bs-toggle='modal' data-bs-target='#logData' class='btn btn-primary edit-entry' data-entryid='{$entry_id}' data-practice='{$lang_practice}' data-focus ='{$lang_focus}' data-yea='{$lang_yea}' data-hmm='{$lang_hmm}' data-strat='{$lang_strat}' data-altpractice='{$alt_practice}' data-altfocus ='{$alt_focus}' data-altyea='{$alt_yea}' data-althmm='{$alt_hmm}' data-altstrat='{$alt_strat}'>Edit</button>
 		</div>
 	</div>
 	";
-	//pp_update_gfentry();
 }
 
-add_action( 'gform_after_submission_3', 'pp_update_gfentry', 10, 2 );
+
+//updates entries via form #3
+add_action( 'gform_after_submission_1', 'pp_update_gfentry', 10, 2 );
 
 function pp_update_gfentry($entry, $form){
-	$entry_id = $entry[15];
-	$lang_practice = $entry[1];
-	$lang_focus = $entry[3];
-	$lang_yea = $entry[4];
-	$lang_hmm = $entry[5];
-	$lang_strat = $entry[6];
-	$alt_practice = $entry[7];
-	$alt_focus = $entry[8];
-	$alt_yea = $entry[9];
-	$alt_hmm = $entry[10];
-	$alt_strat = $entry[11];
-	GFAPI::update_entry_field( $entry_id, 1, $lang_practice );
-	GFAPI::update_entry_field( $entry_id, 3, $lang_focus );
-	GFAPI::update_entry_field( $entry_id, 4, $lang_yea );
-	GFAPI::update_entry_field( $entry_id, 5, $lang_hmm );
-	GFAPI::update_entry_field( $entry_id, 6, $lang_strat );
-	GFAPI::update_entry_field( $entry_id, 7, $alt_practice );
-	GFAPI::update_entry_field( $entry_id, 8, $alt_focus );
-	GFAPI::update_entry_field( $entry_id, 9, $alt_yea );
-	GFAPI::update_entry_field( $entry_id, 10, $alt_hmm );
-	GFAPI::update_entry_field( $entry_id, 11, $alt_strat );	
+	if($entry[15] > 0){
+		$entry_id = $entry[15];
+		$lang_practice = $entry[1];
+		$lang_focus = $entry[3];
+		$lang_yea = $entry[4];
+		$lang_hmm = $entry[5];
+		$lang_strat = $entry[6];
+		$alt_practice = $entry[7];
+		$alt_focus = $entry[8];
+		$alt_yea = $entry[9];
+		$alt_hmm = $entry[10];
+		$alt_strat = $entry[11];
+		GFAPI::update_entry_field( $entry_id, 1, $lang_practice );
+		GFAPI::update_entry_field( $entry_id, 3, $lang_focus );
+		GFAPI::update_entry_field( $entry_id, 4, $lang_yea );
+		GFAPI::update_entry_field( $entry_id, 5, $lang_hmm );
+		GFAPI::update_entry_field( $entry_id, 6, $lang_strat );
+		GFAPI::update_entry_field( $entry_id, 7, $alt_practice );
+		GFAPI::update_entry_field( $entry_id, 8, $alt_focus );
+		GFAPI::update_entry_field( $entry_id, 9, $alt_yea );
+		GFAPI::update_entry_field( $entry_id, 10, $alt_hmm );
+		GFAPI::update_entry_field( $entry_id, 11, $alt_strat );	
+		//GFAPI::delete_entry($entry['id']);//auto delete 
+	} 	
 
 }
