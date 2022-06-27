@@ -79,6 +79,22 @@ function pp_accordion_state($key){
 	}
 }
 
+function pp_aria_state($key){
+	if($key === 0){
+		return 'true';
+	} else {
+		return 'false';
+	}
+}
+
+function pp_collapse_state($key){
+	if($key === 0){
+		return '';
+	} else {
+		return 'collapsed';
+	}
+}
+
 function pp_table_maker($entry, $key){
 	//var_dump($entry);
 	$entry_id = $entry['id'];
@@ -94,10 +110,12 @@ function pp_table_maker($entry, $key){
 	$alt_hmm = $entry[10];
 	$alt_strat = $entry[11];
 	$state = pp_accordion_state($key);
+	$aria = pp_aria_state($key);
+	$collapse = pp_collapse_state($key);
 	echo "
 		<div class='accordion-item' data-entryid='{$entry_id}' data-pdate='{$date}' data-practice='{$lang_practice}' data-alt='{$alt_practice}' >
 		    <h2 class='accordion-header' id='heading-{$key}'>
-		      <button class='accordion-button' type='button' data-bs-toggle='collapse' data-bs-target='#collapse-{$key}' aria-expanded='false' aria-controls='collapse-{$key}'>
+		      <button class='accordion-button {$collapse}' type='button' data-bs-toggle='collapse' data-bs-target='#collapse-{$key}' aria-expanded='{$aria}' aria-controls='collapse-{$key}'>
 		        Entry {$date}
 		      </button>
 		    </h2>
