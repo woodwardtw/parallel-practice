@@ -79,6 +79,7 @@ function pp_accordion_state($key){
 
 function pp_table_maker($entry, $key){
 	//var_dump($entry);
+	$entry_id = $entry['id'];
 	$date = substr($entry['date_created'], 0,10);
 	$lang_practice = $entry[1];
 	$lang_focus = $entry[3];
@@ -92,7 +93,7 @@ function pp_table_maker($entry, $key){
 	$alt_strat = $entry[11];
 	$state = pp_accordion_state($key);
 	echo "
-		<div class='accordion-item' data-pdate='{$date}' data-practice='{$lang_practice}' data-alt='{$alt_practice}' >
+		<div class='accordion-item' data-entryid='{$entry_id}' data-pdate='{$date}' data-practice='{$lang_practice}' data-alt='{$alt_practice}' >
 		    <h2 class='accordion-header' id='heading-{$key}'>
 		      <button class='accordion-button' type='button' data-bs-toggle='collapse' data-bs-target='#collapse-{$key}' aria-expanded='false' aria-controls='collapse-{$key}'>
 		        Entry {$date}

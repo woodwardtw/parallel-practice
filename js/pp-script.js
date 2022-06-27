@@ -18,7 +18,7 @@ if(document.querySelectorAll('.reg-practice input')){
 document.addEventListener("DOMContentLoaded", function(){
 	let entries = document.querySelectorAll('.accordion-item')
 	var chartData = [
-		['Date', 'Practice' , 'Alt Practices']
+		['Date', 'Practice' , 'Alt Practices'],
 	];
 
 	entries.forEach((entry) => {
@@ -36,17 +36,8 @@ if(document.getElementById('chart')){
 	google.charts.load('current', {'packages':['bar']});
       google.charts.setOnLoadCallback(drawChart);
 
-      function drawChart(chartData) {
-        var data = google.visualization.arrayToDataTable(
-        	[
-          	['Date', 'Practice', 'Alt Practices'],
-			['2022-06-27', 12, 22],
-			['2022-06-24', 44, 66],
-			['2022-06-24', 44, 66],
-			['2022-06-24', 44, 66],
-			['2022-06-24', 20, 33]
-        ]
-        );
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable(chartData);
 
         var options = {
           chart: {
