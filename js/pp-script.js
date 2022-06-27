@@ -65,17 +65,26 @@ editButtons.forEach((button) => {
 	  let focus = button.dataset.focus;
 	  let altfocus = button.dataset.altfocus;
 
+	  let yea = button.dataset.yea;
+	  let altyea = button.dataset.altyea;	  
+
 	  let formPractice = document.querySelector('#input_3_1');
 	  let formAltPractice = document.querySelector('#input_3_7');
 	  
 	  let formFocus = document.querySelector('#input_3_3');
-	  let formAltFocus = document.querySelector('#input_3_8');	  
+	  let formAltFocus = document.querySelector('#input_3_8');	
+
+	  let formYea = document.querySelector('#input_3_4');
+	  let formAltYea = document.querySelector('#input_3_9');	    
 	  
 	  formPractice.value = practice;
 	  formAltPractice.value = altpractice;
 
 	  formFocus.value = focus;
 	  formAltFocus.value = altfocus;
+
+	  formYea.value = yea;
+	  formAltYea.value = altyea;	  
 
 	})
 
