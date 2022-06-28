@@ -18,7 +18,7 @@ if(document.querySelectorAll('.reg-practice input')){
 document.addEventListener("DOMContentLoaded", function(){
 	let entries = document.querySelectorAll('.accordion-item')
 	var chartData = [
-		['Date', 'Practice' , 'Alt Practices'],
+		['Date', 'Translation' , 'Other'],
 	];
 
 	entries.forEach((entry) => {
@@ -42,9 +42,13 @@ if(document.getElementById('chart')){
         var options = {
           chart: {
             title: 'Practice Log',
-            subtitle: 'Keep on track',
+            //subtitle: 'Keep on track',
           },
           isStacked: true,
+          series: {
+		    0:{color:'#022543'},
+		    1:{color:'#0d395f'},		   
+		  }
         };
 
         var chart = new google.charts.Bar(document.getElementById('chart'));
@@ -54,6 +58,7 @@ if(document.getElementById('chart')){
 
 }
 
+//fill form for editing
 const editButtons = document.querySelectorAll('.edit-entry');
 editButtons.forEach((button) => {
 	button.addEventListener('click', function (event) {
