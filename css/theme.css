@@ -16553,6 +16553,11 @@ figure.woocommerce-product-gallery__wrapper {
   padding: 5px 10px;
 }
 
+.accordion-body .feedback {
+  width: 95%;
+  background-color: #e5f1fa;
+}
+
 .accordion-button, .accordion-item:first-of-type .accordion-button {
   border-radius: 0;
   box-shadow: none;
@@ -16606,7 +16611,7 @@ figure.woocommerce-product-gallery__wrapper {
 }
 
 @media (max-width: 645px) {
-  #field_1_7, #field_1_8, #field_1_9, #field_1_10, #field_1_11, #field_1_13 {
+  #field_1_7, #field_1_8, #field_1_9, #field_1_10, #field_1_11, #field_1_13, .accordion-body .feedback {
     -ms-flex-order: 7;
     order: 7;
   }

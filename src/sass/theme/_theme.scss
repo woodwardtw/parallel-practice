@@ -12,6 +12,11 @@
 	padding: 5px 10px;
 }
 
+.accordion-body .feedback {
+	width: 95%;
+	background-color: $light-blue;
+}
+
 .accordion-button, .accordion-item:first-of-type .accordion-button {
 	border-radius: 0;
 	box-shadow: none;
@@ -68,7 +73,7 @@
 
 
 @media ( max-width: 645px ) {  
-  #field_1_7, #field_1_8, #field_1_9, #field_1_10, #field_1_11, #field_1_13 { 
+  #field_1_7, #field_1_8, #field_1_9, #field_1_10, #field_1_11, #field_1_13, .accordion-body .feedback  { 
   	order: 7; 
   }
   .accordion-body div {

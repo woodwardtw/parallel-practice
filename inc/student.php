@@ -63,6 +63,7 @@ function pp_table_maker($entry, $key){
     $alt_yea = $entry[9];
     $alt_hmm = $entry[10];
     $alt_strat = $entry[11];
+    $comment = $entry[16];
     $state = pp_accordion_state($key);
     $aria = pp_aria_state($key);
     $collapse = pp_collapse_state($key);
@@ -122,6 +123,10 @@ function pp_table_maker($entry, $key){
                     <h2>Strategy</h2>
                     {$alt_strat}
                 </div>
+                <div class='feedback'>
+                <h2>Feedback</h2>
+                    {$comment}
+                </div>
             </div>
             <button type='button' data-bs-toggle='modal' data-bs-target='#logData' class='btn btn-primary edit-entry' data-entryid='{$entry_id}' data-practice='{$lang_practice}' data-focus ='{$lang_focus}' data-yea='{$lang_yea}' data-hmm='{$lang_hmm}' data-strat='{$lang_strat}' data-altpractice='{$alt_practice}' data-altfocus ='{$alt_focus}' data-altyea='{$alt_yea}' data-althmm='{$alt_hmm}' data-altstrat='{$alt_strat}'>Edit</button>
         </div>
@@ -159,4 +164,15 @@ function pp_update_gfentry($entry, $form){
         GFAPI::delete_entry($entry['id']);//auto delete so we don't end up with duplicates
     }   
 
+}
+
+
+//comment adder
+add_action( 'gform_after_submission_4', 'pp_practice_comment', 10, 2 );
+
+function pp_practice_comment($entry, $form){
+    $entry_id = $entry[2];
+    $comment = $entry[1];
+    GFAPI::update_entry_field( $entry_id, 16, $comment );
+    GFAPI::delete_entry($entry['id']);//auto delete so we don't end up with duplicates
 }
