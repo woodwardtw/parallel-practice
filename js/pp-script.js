@@ -110,12 +110,14 @@ editButtons.forEach((button) => {
 	  formEntryId.value = entryid;
 	})
 
-})
+	})
 
 
 });
 
 
 
-
+jQuery('#logData').on('hidden.bs.modal', function () {
+ location.reload();
+})
 

@@ -43,22 +43,7 @@ defined( 'ABSPATH' ) || exit;
 		    </div>
 		  </div>
 		</div>
-		<!--modal end-->
-		<!-- Modal -->
-		<div class="modal fade" id="editEntry" tabindex="-1" aria-labelledby="edit-practice-title" aria-hidden="true">
-		  <div class="modal-dialog modal-xl">
-		    <div class="modal-content">
-		      <div class="modal-body">
-		      	<h2 id="edit-practice-title">Edit Practice Logger</h2>
-		       <?php //echo do_shortcode('[gravityform id="1" title="false" description="false" ajax="true"]')?>
-		      </div>
-		      <div class="modal-footer">
-		        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-		      </div>
-		    </div>
-		  </div>
-		</div>
-		<!--modal end-->
+		<!--modal end-->		
 		<?php understrap_entry_footer(); ?>
 
 	</footer><!-- .entry-footer -->
