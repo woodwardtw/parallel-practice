@@ -69,3 +69,12 @@ function pp_user_has_role($user_id, $role_name){
         $user_roles = $user_meta->roles;
         return in_array($role_name, $user_roles);
     }
+
+//redirects from dashboard to edit post list 
+function pp_remove_the_dashboard () {
+      if( is_admin() && !defined('DOING_AJAX') && ( !current_user_can('administrator' ) ) ){
+        wp_redirect(home_url());
+        exit;
+      }
+}
+add_action('admin_menu', 'pp_remove_the_dashboard');
