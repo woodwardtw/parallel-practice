@@ -18,6 +18,9 @@ defined( 'ABSPATH' ) || exit;
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
+		<?php 
+		 	$p_student_email = get_post_custom_values('author_email')[0];
+			if(current_user_can( 'activate_plugins' ) || is_user_logged_in() && get_current_user_id() === get_user_by('email', $p_student_email)->ID):?>
 		<div id="chart"></div>
 		<?php
 		the_content();
@@ -26,6 +29,7 @@ defined( 'ABSPATH' ) || exit;
 		<button id="logButton" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#logData">
 		  Add practice
 		</button>
+	<?php endif;?>
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
