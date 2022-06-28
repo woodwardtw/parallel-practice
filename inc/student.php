@@ -49,6 +49,15 @@ function pp_collapse_state($key){
     }
 }
 
+function pp_comment_button($entry_id){
+    if(current_user_can('Administrator')){
+        return "<button type='button' data-bs-toggle='modal' data-bs-target='#comment' class='btn btn-primary comment' data-entryid='{$entry_id}'>Comment</button>"; 
+    } else {
+        return '';
+    }
+   
+}
+
 function pp_table_maker($entry, $key){
     //var_dump($entry);
     $entry_id = $entry['id'];
@@ -67,6 +76,7 @@ function pp_table_maker($entry, $key){
     $state = pp_accordion_state($key);
     $aria = pp_aria_state($key);
     $collapse = pp_collapse_state($key);
+    $comment_button = pp_comment_button($entry_id);
     echo "
         <div class='accordion-item' data-entryid='{$entry_id}' data-pdate='{$date}' data-practice='{$lang_practice}' data-alt='{$alt_practice}' >
             <h2 class='accordion-header' id='heading-{$key}'>
@@ -129,6 +139,7 @@ function pp_table_maker($entry, $key){
                 </div>
             </div>
             <button type='button' data-bs-toggle='modal' data-bs-target='#logData' class='btn btn-primary edit-entry' data-entryid='{$entry_id}' data-practice='{$lang_practice}' data-focus ='{$lang_focus}' data-yea='{$lang_yea}' data-hmm='{$lang_hmm}' data-strat='{$lang_strat}' data-altpractice='{$alt_practice}' data-altfocus ='{$alt_focus}' data-altyea='{$alt_yea}' data-althmm='{$alt_hmm}' data-altstrat='{$alt_strat}'>Edit</button>
+            {$comment_button}
         </div>
     </div>
     ";
