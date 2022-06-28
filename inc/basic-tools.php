@@ -11,10 +11,21 @@ defined( 'ABSPATH' ) || exit;
 
 //make student user role
 function pp_make_students(){
-    if ( get_option( 'custom_roles_version' ) < 1 ) {
-        add_role( 'pp_student', 'Parallel Practicer', get_role( 'author' )->capabilities);
-        update_option( 'custom_roles_version', 1 );
+    $rights = array(
+        'upload_files' => true,
+          'edit_posts' =>  true,
+          'edit_published_posts' => false,
+          'publish_posts' => false,
+          'read' => true,
+          'level_2' => true,
+          'level_1' => true,
+          'level_0' => true,
+          'delete_posts' => false,
+          'delete_published_posts' => false,
+    );
+   if ( get_option( 'custom_roles_version' ) < 1 ) {
+        add_role( 'p_student', 'Parallel Practicer', $rights);
+       update_option( 'custom_roles_version', 1 );
     }
 }
 
-add_action( 'init', 'pp_make_students' );
