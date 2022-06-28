@@ -49,9 +49,9 @@ function pp_collapse_state($key){
     }
 }
 
-function pp_comment_button($entry_id){
+function pp_comment_button($entry_id, $comment){
     if(current_user_can('Administrator')){
-        return "<button type='button' data-bs-toggle='modal' data-bs-target='#comment' class='btn btn-primary comment-entry' data-entryid='{$entry_id}'>Comment</button>"; 
+        return "<button type='button' data-bs-toggle='modal' data-bs-target='#comment' class='btn btn-primary comment-entry' data-entryid='{$entry_id}' data-comment='{$comment}'>Comment</button>"; 
     } else {
         return '';
     }
@@ -59,7 +59,8 @@ function pp_comment_button($entry_id){
 }
 
 function pp_table_maker($entry, $key){
-    //var_dump($entry);
+    //var_dump(get_the_author_meta('user_login'));
+    $form_user = $entry[14];
     $entry_id = $entry['id'];
     $date = substr($entry['date_created'], 0,10);
     $lang_practice = $entry[1];
@@ -76,8 +77,9 @@ function pp_table_maker($entry, $key){
     $state = pp_accordion_state($key);
     $aria = pp_aria_state($key);
     $collapse = pp_collapse_state($key);
-    $comment_button = pp_comment_button($entry_id);
-    echo "
+    $comment_button = pp_comment_button($entry_id, $comment);
+    if($form_user === get_the_author_meta('user_login')){
+        echo "
         <div class='accordion-item' data-entryid='{$entry_id}' data-pdate='{$date}' data-practice='{$lang_practice}' data-alt='{$alt_practice}' >
             <h2 class='accordion-header' id='heading-{$key}'>
               <button class='accordion-button {$collapse}' type='button' data-bs-toggle='collapse' data-bs-target='#collapse-{$key}' aria-expanded='{$aria}' aria-controls='collapse-{$key}'>
@@ -143,6 +145,9 @@ function pp_table_maker($entry, $key){
         </div>
     </div>
     ";
+
+    }
+    
 }
 
 

@@ -129,10 +129,14 @@ jQuery('#logData').on('hidden.bs.modal', function () {
 const editButtons = document.querySelectorAll('.comment-entry');
 editButtons.forEach((button) => {
 	button.addEventListener('click', function (event) {
-		let entryid = button.dataset.entryid;	  		    
+		let entryid = button.dataset.entryid;	 
+		let comment = button.dataset.comment; 		    
+		
 		let formEntryId = document.querySelector('#input_4_2');  	     
-	  
+	  let formComment = document.querySelector('#input_4_1');
+
 	  formEntryId.value = entryid;
+	  formComment.value = comment;
 		})
 
 	})
