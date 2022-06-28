@@ -126,3 +126,18 @@ jQuery('#logData').on('hidden.bs.modal', function () {
  location.reload();
 })
 
+const editButtons = document.querySelectorAll('.comment-entry');
+editButtons.forEach((button) => {
+	button.addEventListener('click', function (event) {
+		let entryid = button.dataset.entryid;	  		    
+		let formEntryId = document.querySelector('#input_4_2');  	     
+	  
+	  formEntryId.value = entryid;
+		})
+
+	})
+
+
+jQuery('#comment').on('hidden.bs.modal', function () {
+ location.reload();
+})

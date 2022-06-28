@@ -51,7 +51,7 @@ function pp_collapse_state($key){
 
 function pp_comment_button($entry_id){
     if(current_user_can('Administrator')){
-        return "<button type='button' data-bs-toggle='modal' data-bs-target='#comment' class='btn btn-primary comment' data-entryid='{$entry_id}'>Comment</button>"; 
+        return "<button type='button' data-bs-toggle='modal' data-bs-target='#comment' class='btn btn-primary comment-entry' data-entryid='{$entry_id}'>Comment</button>"; 
     } else {
         return '';
     }
