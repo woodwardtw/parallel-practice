@@ -33,6 +33,7 @@ defined( 'ABSPATH' ) || exit;
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
+		<a href="<?php echo wp_logout_url();?>">logout</a>
 		<!-- Modal -->
 		<div class="modal fade" id="logData" tabindex="-1" aria-labelledby="practice-title" aria-hidden="true">
 		  <div class="modal-dialog modal-xl">

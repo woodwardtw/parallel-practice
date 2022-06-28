@@ -78,3 +78,13 @@ function pp_remove_the_dashboard () {
       }
 }
 add_action('admin_menu', 'pp_remove_the_dashboard');
+
+
+//hide admin bar 
+
+add_action('after_setup_theme', 'remove_admin_bar');
+function remove_admin_bar() {
+    if (!current_user_can('administrator') && !is_admin()) {
+      show_admin_bar(false);
+    }
+}
