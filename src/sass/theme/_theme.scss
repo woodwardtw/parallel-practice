@@ -48,11 +48,22 @@
 	color: #fff;
 	font-size: 1.3rem;
 	border-radius: 4px;
+	max-width: 400px;
+	border: none;
 }
 
 
+#gform_fields_1 .gfield:nth-child(odd) {
+	margin-bottom: -20px;
+	padding: 10px 15px 20px 15px;
+	background-color: $primary;
+	color: #fff;
+}
+
 #gform_fields_1 .gfield:nth-child(even) {
-	background-color: red;
+	background-color: #a7a7a7;
+	margin-bottom: -20px;
+	padding: 10px 15px 20px 15px;
 }
 
 

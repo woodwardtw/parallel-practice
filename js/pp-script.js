@@ -47,7 +47,7 @@ if(document.getElementById('chart')){
           isStacked: true,
           series: {
 		    0:{color:'#022543'},
-		    1:{color:'#0d395f'},		   
+		    1:{color:'#a7a7a7'},		   
 		  }
         };
 
