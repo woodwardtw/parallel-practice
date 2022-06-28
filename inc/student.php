@@ -12,8 +12,12 @@ defined( 'ABSPATH' ) || exit;
 
 //Form entry display for student page
 function pp_practice_log(){
+    global $post;
+    $user_login = get_the_author_meta('user_login');
     $form_id = 1;//FORM ID
-    $search_criteria = array();
+
+    $search_criteria['field_filters'][] = array( 'key' => '14', 'value' => $user_login);
+
     $sorting         = array();
     $paging          = array( 'offset' => 0, 'page_size' => 500);
     $entries = GFAPI::get_entries($form_id, $search_criteria, $sorting, $paging, $total_count );
