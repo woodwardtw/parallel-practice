@@ -55,6 +55,7 @@ function pp_collapse_state($key){
 
 function pp_comment_button($entry_id, $comment){
     if(current_user_can('Administrator')){
+        $comment = htmlspecialchars($comment,ENT_QUOTES);
         return "<button type='button' data-bs-toggle='modal' data-bs-target='#comment' class='btn btn-primary comment-entry' data-entryid='{$entry_id}' data-comment='{$comment}'>Comment</button>"; 
     } else {
         return '';
@@ -67,17 +68,17 @@ function pp_table_maker($entry, $key){
     $form_user = $entry[14];
     $entry_id = $entry['id'];
     $date = substr($entry['date_created'], 0,10);
-    $lang_practice = $entry[1];
-    $lang_focus = $entry[3];
-    $lang_yea = $entry[4];
-    $lang_hmm = $entry[5];
-    $lang_strat = $entry[6];
-    $alt_practice = $entry[7];
-    $alt_focus = $entry[8];
-    $alt_yea = $entry[9];
-    $alt_hmm = $entry[10];
-    $alt_strat = $entry[11];
-    $comment = $entry[16];
+    $lang_practice = htmlspecialchars($entry[1],ENT_QUOTES);
+    $lang_focus = htmlspecialchars($entry[3],ENT_QUOTES);
+    $lang_yea = htmlspecialchars($entry[4],ENT_QUOTES);
+    $lang_hmm = htmlspecialchars($entry[5],ENT_QUOTES);
+    $lang_strat = htmlspecialchars($entry[6],ENT_QUOTES);
+    $alt_practice = htmlspecialchars($entry[7],ENT_QUOTES);
+    $alt_focus = htmlspecialchars($entry[8],ENT_QUOTES);
+    $alt_yea = htmlspecialchars($entry[9],ENT_QUOTES);
+    $alt_hmm = htmlspecialchars($entry[10],ENT_QUOTES);
+    $alt_strat = htmlspecialchars($entry[11],ENT_QUOTES);
+    $comment = htmlspecialchars($entry[16],ENT_QUOTES);
     $state = pp_accordion_state($key);
     $aria = pp_aria_state($key);
     $collapse = pp_collapse_state($key);
