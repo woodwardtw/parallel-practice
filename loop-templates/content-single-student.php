@@ -10,7 +10,6 @@ defined( 'ABSPATH' ) || exit;
 ?>
 
 <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
-		<?php var_dump(get_the_author_meta('user_login', $post->author));?>
 
 	<header class="entry-header">
 
