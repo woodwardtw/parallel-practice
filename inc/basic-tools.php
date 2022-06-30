@@ -35,9 +35,12 @@ add_action('template_redirect', 'pp_user_redirection');
 
 function pp_user_redirection(){
     global $post;
+    global $wp;
     $url = get_site_url();
-    if(!is_user_logged_in()){
-        wp_redirect($url . '/wp-login.php'); 
+    $current_url = home_url( add_query_arg( array(), $wp->request ) );
+    //var_dump($current_url);
+    if(!is_user_logged_in() && $current_url != $url . '/register'){
+        wp_redirect($url . '/register'); 
         exit;
     }
     if(is_user_logged_in()){
@@ -54,7 +57,7 @@ function pp_user_redirection(){
 
 
 //user registration set slug
-add_action( 'gform_advancedpostcreation_post_after_creation', 'pp_set_student_slug', 10, 2 );
+add_action( 'gform_advancedpostcreation_post_after_creation', 'pp_set_student_slug', 10, 4 );
 
 function pp_set_student_slug($post_id, $feed, $entry, $form){
     wp_update_post([

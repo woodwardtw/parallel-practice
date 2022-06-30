@@ -197,3 +197,24 @@ function pp_practice_comment($entry, $form){
     GFAPI::update_entry_field( $entry_id, 16, $comment );
     GFAPI::delete_entry($entry['id']);//auto delete so we don't end up with duplicates
 }
+
+
+//make sure the author is correct ... did this correctly in gravity forms instead
+//add_action( 'save_post', 'pp_author_verify', 10, 3 );
+//add_action( 'update_post', 'pp_author_verify', 10, 3 );
+// function pp_author_verify($post_id, $post, $update){
+//     $login = get_post_meta($post_id, 'author_login', true);
+//     $author = get_the_author_meta('user_login', $post->post_author);
+//     if($login && $author && $login != $author && username_exists($login)){
+//         $user_id = get_user_by('user_login', $login)->ID;
+//         $author_fix = array(
+//           'ID'           => $post_id,
+//           'post_author'  => $user_id
+          
+//       );
+     
+//     // Update the post into the database
+//       wp_update_post( $author_fix );
+
+//     }
+// }
