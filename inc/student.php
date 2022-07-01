@@ -79,10 +79,16 @@ function pp_table_maker($entry, $key){
     $alt_hmm = htmlspecialchars($entry[10],ENT_QUOTES);
     $alt_strat = htmlspecialchars($entry[11],ENT_QUOTES);
     $comment = htmlspecialchars($entry[16],ENT_QUOTES);
-    $reflection_learning = pp_reflection_blocks($entry[18], 'Learning Reflection');
-    $reflection_parallel = pp_reflection_blocks($entry[21], 'Parallel Reflection');
-    $reflection_assistance = pp_reflection_blocks($entry[20], 'Assistance Request');
-    $reflection_regulation = pp_reflection_blocks($entry[19], 'Self-Regulation Reflection');
+    $reflection_learning = htmlspecialchars($entry[18],ENT_QUOTES);
+    $reflection_parallel = htmlspecialchars($entry[21],ENT_QUOTES);
+    $reflection_assistance = htmlspecialchars($entry[20],ENT_QUOTES);
+    $reflection_regulation = htmlspecialchars($entry[19],ENT_QUOTES);
+
+
+    $reflection_learning_html = pp_reflection_blocks($reflection_learning, 'Learning Reflection');
+    $reflection_parallel_html = pp_reflection_blocks($reflection_parallel, 'Parallel Reflection');
+    $reflection_assistance_html = pp_reflection_blocks($reflection_assistance, 'Assistance Request');
+    $reflection_regulation_html = pp_reflection_blocks($reflection_regulation, 'Self-Regulation Reflection');
 
     $state = pp_accordion_state($key);
     $aria = pp_aria_state($key);
@@ -144,16 +150,16 @@ function pp_table_maker($entry, $key){
                     <h2>Strategy</h2>
                     {$alt_strat}
                 </div>                  
-                {$reflection_learning}
-                {$reflection_parallel}
-                {$reflection_assistance}
-                {$reflection_regulation}
+                {$reflection_learning_html}
+                {$reflection_parallel_html}
+                {$reflection_assistance_html}
+                {$reflection_regulation_html}
                 <div class='feedback full'>
                 <h2>Feedback</h2>
                     {$comment}
                 </div>
             </div>
-            <button type='button' data-bs-toggle='modal' data-bs-target='#logData' class='btn btn-primary edit-entry' data-entryid='{$entry_id}' data-practice='{$lang_practice}' data-focus ='{$lang_focus}' data-yea='{$lang_yea}' data-hmm='{$lang_hmm}' data-strat='{$lang_strat}' data-altpractice='{$alt_practice}' data-altfocus ='{$alt_focus}' data-altyea='{$alt_yea}' data-althmm='{$alt_hmm}' data-altstrat='{$alt_strat}'>Edit</button>
+            <button type='button' data-bs-toggle='modal' data-bs-target='#logData' class='btn btn-primary edit-entry' data-entryid='{$entry_id}' data-practice='{$lang_practice}' data-focus ='{$lang_focus}' data-yea='{$lang_yea}' data-hmm='{$lang_hmm}' data-strat='{$lang_strat}' data-altpractice='{$alt_practice}' data-altfocus ='{$alt_focus}' data-altyea='{$alt_yea}' data-althmm='{$alt_hmm}' data-altstrat='{$alt_strat}' data-reflect-learning='{$reflection_learning}'>Edit</button>
             {$comment_button}
         </div>
     </div>
@@ -166,7 +172,6 @@ function pp_table_maker($entry, $key){
 
 function pp_reflection_blocks($entry, $title){
     if($entry != ''){
-      $entry = htmlspecialchars($entry,ENT_QUOTES);
       $html =  "<div class='reflection full'>
                 <h2>{$title}</h2>
                     {$entry}
