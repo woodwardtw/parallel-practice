@@ -19,8 +19,13 @@ defined( 'ABSPATH' ) || exit;
 
 	<div class="entry-content">
 		<?php 
-		 	$p_student_email = get_post_custom_values('author_email')[0];
-			if(current_user_can( 'activate_plugins' ) || is_user_logged_in() && get_current_user_id() === get_user_by('email', $p_student_email)->ID):?>
+			if(get_post_custom_values('author_login')){
+				$p_student_login = get_post_custom_values('author_login')[0];
+			} else {
+				$p_student_login = '';
+			}
+		 	
+			if(current_user_can( 'activate_plugins' ) || is_user_logged_in() && get_current_user_id() === get_user_by('login', $p_student_login)->ID):?>
 		<div id="chart"></div>
 		<?php
 		the_content();
