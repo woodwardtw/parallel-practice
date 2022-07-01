@@ -142,14 +142,7 @@ function pp_table_maker($entry, $key){
                     {$alt_hmm}
                 </div>
 
-                <div class='strat'>
-                    <h2>Strategy</h2>
-                    {$lang_strat}
-                </div>
-                <div class='strat alt'>
-                    <h2>Strategy</h2>
-                    {$alt_strat}
-                </div>                  
+                             
                 {$reflection_learning_html}
                 {$reflection_parallel_html}
                 {$reflection_assistance_html}
