@@ -16554,8 +16554,11 @@ figure.woocommerce-product-gallery__wrapper {
 }
 
 .accordion-body .feedback {
-  width: 95%;
   background-color: #e5f1fa;
+}
+
+.accordion-body .full {
+  width: 95%;
 }
 
 .accordion-button, .accordion-item:first-of-type .accordion-button {

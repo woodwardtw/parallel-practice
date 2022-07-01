@@ -13,8 +13,11 @@
 }
 
 .accordion-body .feedback {
-	width: 95%;
 	background-color: $light-blue;
+}
+
+.accordion-body .full {
+	width: 95%;
 }
 
 .accordion-button, .accordion-item:first-of-type .accordion-button {

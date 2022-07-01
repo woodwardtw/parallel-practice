@@ -79,6 +79,11 @@ function pp_table_maker($entry, $key){
     $alt_hmm = htmlspecialchars($entry[10],ENT_QUOTES);
     $alt_strat = htmlspecialchars($entry[11],ENT_QUOTES);
     $comment = htmlspecialchars($entry[16],ENT_QUOTES);
+    $reflection_learning = pp_reflection_blocks($entry[18], 'Learning Reflection');
+    $reflection_parallel = pp_reflection_blocks($entry[21], 'Parallel Reflection');
+    $reflection_assistance = pp_reflection_blocks($entry[20], 'Assistance Request');
+    $reflection_regulation = pp_reflection_blocks($entry[19], 'Self-Regulation Reflection');
+
     $state = pp_accordion_state($key);
     $aria = pp_aria_state($key);
     $collapse = pp_collapse_state($key);
@@ -134,13 +139,16 @@ function pp_table_maker($entry, $key){
                 <div class='strat'>
                     <h2>Strategy</h2>
                     {$lang_strat}
-                </div>                  
-                
+                </div>
                 <div class='strat alt'>
                     <h2>Strategy</h2>
                     {$alt_strat}
-                </div>
-                <div class='feedback'>
+                </div>                  
+                {$reflection_learning}
+                {$reflection_parallel}
+                {$reflection_assistance}
+                {$reflection_regulation}
+                <div class='feedback full'>
                 <h2>Feedback</h2>
                     {$comment}
                 </div>
@@ -155,6 +163,19 @@ function pp_table_maker($entry, $key){
     
 }
 
+
+function pp_reflection_blocks($entry, $title){
+    if($entry != ''){
+      $entry = htmlspecialchars($entry,ENT_QUOTES);
+      $html =  "<div class='reflection full'>
+                <h2>{$title}</h2>
+                    {$entry}
+                </div>";
+    return $html;
+    } else {
+        return '';
+    }
+}
 
 //updates entries via form #3
 add_action( 'gform_after_submission_1', 'pp_update_gfentry', 10, 2 );
