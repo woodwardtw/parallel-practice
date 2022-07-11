@@ -41,14 +41,14 @@ if(document.getElementById('chart')){
 
         var options = {
           chart: {
-            title: 'Practice Log',
+            title: 'Practice Log',         
             //subtitle: 'Keep on track',
           },
           isStacked: true,
           series: {
 		    0:{color:'#022543'},
-		    1:{color:'#a7a7a7'},		   
-		  }
+		    1:{color:'#a7a7a7'},		 
+		  		},	
         };
 
         var chart = new google.charts.Bar(document.getElementById('chart'));
