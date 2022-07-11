@@ -63,6 +63,19 @@ function pp_comment_button($entry_id, $comment){
    
 }
 
+function pp_learning_reflection_selections($entry){
+    $selected = array();
+    $selections = array(1,2,3,4);
+    foreach ($selections as $selection) {
+        $id = '17.' . $selection;
+        if($entry[$id] != ''){
+            array_push($selected, $selection);
+        }
+    }  
+    return $selected;
+}
+
+
 function pp_table_maker($entry, $key){
     //var_dump(get_the_author_meta('user_login'));
     $form_user = $entry[14];
@@ -79,6 +92,9 @@ function pp_table_maker($entry, $key){
     $alt_hmm = htmlspecialchars($entry[10],ENT_QUOTES);
     $alt_strat = htmlspecialchars($entry[11],ENT_QUOTES);
     $comment = htmlspecialchars($entry[16],ENT_QUOTES);
+
+    $reflection_selection = implode(', ', pp_learning_reflection_selections($entry));
+   
     $reflection_learning = htmlspecialchars($entry[18],ENT_QUOTES);
     $reflection_parallel = htmlspecialchars($entry[21],ENT_QUOTES);
     $reflection_assistance = htmlspecialchars($entry[20],ENT_QUOTES);
@@ -152,7 +168,7 @@ function pp_table_maker($entry, $key){
                     {$comment}
                 </div>
             </div>
-            <button type='button' data-bs-toggle='modal' data-bs-target='#logData' class='btn btn-primary edit-entry' data-entryid='{$entry_id}' data-practice='{$lang_practice}' data-focus ='{$lang_focus}' data-yea='{$lang_yea}' data-hmm='{$lang_hmm}' data-strat='{$lang_strat}' data-altpractice='{$alt_practice}' data-altfocus ='{$alt_focus}' data-altyea='{$alt_yea}' data-althmm='{$alt_hmm}' data-altstrat='{$alt_strat}' data-reflect-learning='{$reflection_learning}'>Edit</button>
+            <button type='button' data-bs-toggle='modal' data-bs-target='#logData' class='btn btn-primary edit-entry' data-entryid='{$entry_id}' data-practice='{$lang_practice}' data-focus ='{$lang_focus}' data-yea='{$lang_yea}' data-hmm='{$lang_hmm}' data-strat='{$lang_strat}' data-altpractice='{$alt_practice}' data-altfocus ='{$alt_focus}' data-altyea='{$alt_yea}' data-althmm='{$alt_hmm}' data-altstrat='{$alt_strat}' data-reflectSelection='{$reflection_selection}' data-reflectLearning='{$reflection_learning}'>Edit</button>
             {$comment_button}
         </div>
     </div>

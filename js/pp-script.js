@@ -81,6 +81,9 @@ editButtons.forEach((button) => {
 
 	  let reflectLearn = button.dataset.strat;
 
+	  let reflectBoxes = button.dataset.reflectselection;
+	  console.log(reflectBoxes);
+
 	  let entryid = button.dataset.entryid;	  		    
 
 
@@ -99,14 +102,14 @@ editButtons.forEach((button) => {
 
 	  // let formStrategy = document.querySelector('#input_1_6');
 	  // let formAltStrategy = document.querySelector('#input_1_11');	
-
+	
 	  let formEntryId = document.querySelector('#input_1_15');  
 
 //checkboxes
-	  let learningPattern = document.querySelector('#choice_1_17_1');
-	  let learningReflection = document.querySelector('#choice_1_17_2');	    
-	  let learningAssistance = document.querySelector('#choice_1_17_3');
-	  let learningRegulation = document.querySelector('#choice_1_17_4');	
+	  // let learningPattern = document.querySelector('#choice_1_17_1');
+	  // let learningReflection = document.querySelector('#choice_1_17_2');	    
+	  // let learningAssistance = document.querySelector('#choice_1_17_3');
+	  // let learningRegulation = document.querySelector('#choice_1_17_4');	
 
 	  formPractice.value = practice;
 	  formAltPractice.value = altpractice;
@@ -119,6 +122,11 @@ editButtons.forEach((button) => {
 
 	  formHmm.value = hmm;
 	  formAltHmm.value = althmm; 
+
+	  if(reflectBoxes != ''){
+		  		  pp_check_the_boxes(reflectBoxes);
+		  }
+	  
 
 	  // formStrategy.value = strategy;
 	  // formAltStrategy.value = altstrategy; 	
@@ -133,6 +141,16 @@ editButtons.forEach((button) => {
 });
 
 
+//check the boxes
+function pp_check_the_boxes(ids){
+		ids = ids.split(', ');
+		ids.forEach( function(id) {
+			console.log(id);
+			if(document.querySelector('#choice_1_17_'+id)){
+				document.querySelector('#choice_1_17_'+id).checked = true;
+			}
+		});
+}
 
 jQuery('#logData').on('hidden.bs.modal', function () {
  location.reload();
