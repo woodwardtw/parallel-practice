@@ -62,6 +62,7 @@ if(document.getElementById('chart')){
 const editButtons = document.querySelectorAll('.edit-entry');
 editButtons.forEach((button) => {
 	button.addEventListener('click', function (event) {
+//get data from previous submission	  
 	  // Extract info from data-bs-* attributes
 	  let practice = button.dataset.practice;
 	  let altpractice = button.dataset.altpractice;
@@ -82,6 +83,8 @@ editButtons.forEach((button) => {
 
 	  let entryid = button.dataset.entryid;	  		    
 
+
+//modal selection
 	  let formPractice = document.querySelector('#input_1_1');
 	  let formAltPractice = document.querySelector('#input_1_7');
 	  
@@ -99,6 +102,7 @@ editButtons.forEach((button) => {
 
 	  let formEntryId = document.querySelector('#input_1_15');  
 
+//checkboxes
 	  let learningPattern = document.querySelector('#choice_1_17_1');
 	  let learningReflection = document.querySelector('#choice_1_17_2');	    
 	  let learningAssistance = document.querySelector('#choice_1_17_3');
@@ -117,7 +121,8 @@ editButtons.forEach((button) => {
 	  formAltHmm.value = althmm; 
 
 	  // formStrategy.value = strategy;
-	  // formAltStrategy.value = altstrategy; 	  
+	  // formAltStrategy.value = altstrategy; 	
+	  //document.querySelector('#choice_1_17_1').checked = true  
 
 	  formEntryId.value = entryid;
 	})
