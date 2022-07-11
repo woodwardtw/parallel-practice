@@ -148,9 +148,16 @@ function pp_check_the_boxes(ids){
 			console.log(id);
 			if(document.querySelector('#choice_1_17_'+id)){
 				document.querySelector('#choice_1_17_'+id).checked = true;
+				pp_show_box_field(id);
 			}
 		});
 }
+
+function pp_show_box_field(id){
+	document.querySelector('#field_1_'+id).style = "display: block";
+	document.querySelector('#input_1_'+id).disabled = false;
+}
+
 
 jQuery('#logData').on('hidden.bs.modal', function () {
  location.reload();
