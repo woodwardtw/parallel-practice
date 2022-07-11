@@ -46,9 +46,20 @@ if(document.getElementById('chart')){
           },
           isStacked: true,
           series: {
-		    0:{color:'#022543'},
-		    1:{color:'#a7a7a7'},		 
-		  		},	
+				    0:{color:'#022543'},
+				    1:{color:'#a7a7a7'},		 
+			  		},
+					titlePosition: 'in', 
+					axisTitlesPosition: 'in',
+					hAxis: {
+						textPosition: 'out',
+						title: 'Dates',
+						slantedText: true,
+						slantedTextAngle: 45,
+					}, 
+					vAxis: {
+						textPosition: 'in'
+					},			  
         };
 
         var chart = new google.charts.Bar(document.getElementById('chart'));
