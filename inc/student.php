@@ -207,6 +207,11 @@ function pp_update_gfentry($entry, $form){
         $alt_yea = $entry[9];
         $alt_hmm = $entry[10];
         $alt_strat = $entry[11];
+        $alt_learning = $entry[18];
+        $alt_regulation = $entry[19];
+        $alt_assist = $entry[20];
+        $alt_parallel = $entry[21];
+
         GFAPI::update_entry_field( $entry_id, 1, $lang_practice );
         GFAPI::update_entry_field( $entry_id, 3, $lang_focus );
         GFAPI::update_entry_field( $entry_id, 4, $lang_yea );
@@ -216,7 +221,11 @@ function pp_update_gfentry($entry, $form){
         GFAPI::update_entry_field( $entry_id, 8, $alt_focus );
         GFAPI::update_entry_field( $entry_id, 9, $alt_yea );
         GFAPI::update_entry_field( $entry_id, 10, $alt_hmm );
-        GFAPI::update_entry_field( $entry_id, 11, $alt_strat ); 
+        GFAPI::update_entry_field( $entry_id, 11, $alt_strat );
+        GFAPI::update_entry_field( $entry_id, 18, $alt_learning );
+        GFAPI::update_entry_field( $entry_id, 19, $alt_regulation );
+        GFAPI::update_entry_field( $entry_id, 20, $alt_assist);
+        GFAPI::update_entry_field( $entry_id, 21, $alt_parallel);
         GFAPI::delete_entry($entry['id']);//auto delete so we don't end up with duplicates
     }   
 
