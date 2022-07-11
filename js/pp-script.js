@@ -154,8 +154,10 @@ function pp_check_the_boxes(ids){
 }
 
 function pp_show_box_field(id){
-	document.querySelector('#field_1_'+id).style = "display: block";
-	document.querySelector('#input_1_'+id).disabled = false;
+	let realId = parseInt(id)+17;
+	console.log(realId);
+	document.querySelector('#field_1_'+realId).style = "display: block";
+	document.querySelector('#input_1_'+realId).disabled = false;
 }
 
 
