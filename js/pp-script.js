@@ -82,7 +82,6 @@ editButtons.forEach((button) => {
 	  let reflectLearn = button.dataset.strat;
 
 	  let reflectBoxes = button.dataset.reflectselection;
-	  console.log(reflectBoxes);
 
 	  let entryid = button.dataset.entryid;	  		    
 
@@ -124,7 +123,7 @@ editButtons.forEach((button) => {
 	  formAltHmm.value = althmm; 
 
 	  if(reflectBoxes != ''){
-		  		  pp_check_the_boxes(reflectBoxes);
+		  		  pp_check_the_boxes(reflectBoxes, button);
 		  }
 	  
 
@@ -142,22 +141,25 @@ editButtons.forEach((button) => {
 
 
 //check the boxes
-function pp_check_the_boxes(ids){
+function pp_check_the_boxes(ids, button){
 		ids = ids.split(', ');
 		ids.forEach( function(id) {
-			console.log(id);
 			if(document.querySelector('#choice_1_17_'+id)){
 				document.querySelector('#choice_1_17_'+id).checked = true;
-				pp_show_box_field(id);
+				pp_show_box_field(id, button);
 			}
 		});
 }
 
-function pp_show_box_field(id){
+//unhide the elements based on the checkboxes
+function pp_show_box_field(id, button){
 	let realId = parseInt(id)+17;
-	console.log(realId);
 	document.querySelector('#field_1_'+realId).style = "display: block";
-	document.querySelector('#input_1_'+realId).disabled = false;
+	let response = document.querySelector('#input_1_'+realId);
+	response.disabled = false;
+	//console.log(button.dataset);
+	let buttonValue = button.getAttribute( 'data-reflect'+id );
+	response.value = buttonValue;
 }
 
 
