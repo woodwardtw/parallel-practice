@@ -76,6 +76,14 @@ function pp_learning_reflection_selections($entry){
 }
 
 
+function pp_help_flag($data){
+    if($data){
+        return 'help';
+    } else {
+        return '';
+    }
+}
+
 function pp_table_maker($entry, $key){
     //var_dump(get_the_author_meta('user_login'));
     $form_user = $entry[14];
@@ -100,6 +108,7 @@ function pp_table_maker($entry, $key){
     $reflection_assistance = htmlspecialchars($entry[20],ENT_QUOTES);
     $reflection_regulation = htmlspecialchars($entry[19],ENT_QUOTES);
 
+    $help_request = pp_help_flag($reflection_assistance);
 
     $reflection_learning_html = pp_reflection_blocks($reflection_learning, 'Learning Reflection');
     $reflection_parallel_html = pp_reflection_blocks($reflection_parallel, 'Parallel Reflection');
@@ -112,7 +121,7 @@ function pp_table_maker($entry, $key){
     $comment_button = pp_comment_button($entry_id, $comment);
     if($form_user === get_the_author_meta('user_login')){
         echo "
-        <div class='accordion-item' data-entryid='{$entry_id}' data-pdate='{$date}' data-practice='{$lang_practice}' data-alt='{$alt_practice}' >
+        <div class='accordion-item {$help_request}' data-entryid='{$entry_id}' data-pdate='{$date}' data-practice='{$lang_practice}' data-alt='{$alt_practice}' >
             <h2 class='accordion-header' id='heading-{$key}'>
               <button class='accordion-button {$collapse}' type='button' data-bs-toggle='collapse' data-bs-target='#collapse-{$key}' aria-expanded='{$aria}' aria-controls='collapse-{$key}'>
                 Entry {$date}
