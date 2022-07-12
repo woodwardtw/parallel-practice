@@ -53,13 +53,10 @@ foreach ( $understrap_includes as $file ) {
 function pp_random_img(){
 	$path = get_template_directory() . '/imgs/yea/';
 	$url = get_template_directory_uri() . '/imgs/yea/';
-	//$files = list_files(get_template_directory();
-
-	$files = array_diff(scandir($path), array('..', '.'));
-	var_dump($files);
-	$size = count($files);
-	$random = rand(1, $size);
-	return "<img src='{$url}{$files[$random]}' alt='Celebration icon.'>";
+	$files = array_slice(scandir($path), 2);//get rid of dot files
+	$size = count($files)-1;
+	$random = rand(0, $size);
+	return "<img class='celebrate' src='{$url}{$files[$random]}' alt='Celebration icon.'>";
 }
 add_shortcode( 'random-img', 'pp_random_img' );
 
