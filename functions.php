@@ -50,15 +50,16 @@ foreach ( $understrap_includes as $file ) {
 
 
 //randomize good images
-function pp_random_img(){
+function pp_random_img($confirmation, $form, $entry, $ajax){
 	$path = get_template_directory() . '/imgs/yea/';
 	$url = get_template_directory_uri() . '/imgs/yea/';
 	$files = array_slice(scandir($path), 2);//get rid of dot files
 	$size = count($files)-1;
 	$random = rand(0, $size);
-	return "<img class='celebrate' src='{$url}{$files[$random]}' alt='Celebration icon.'>";
+	return $confirmation . "<img class='celebrate' src='{$url}{$files[$random]}' alt='Celebration icon.'>";
 }
-add_shortcode( 'random-img', 'pp_random_img' );
+//add_shortcode( 'random-img', 'pp_random_img' );
+add_filter( 'gform_confirmation_1', 'pp_random_img', 10, 4 );
 
 //LOGGER -- like frogger but more useful
 

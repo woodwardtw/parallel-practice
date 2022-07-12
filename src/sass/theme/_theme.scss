@@ -82,6 +82,22 @@
 	background-repeat: no-repeat;
 }
 
+#practice-title {
+	text-align: center;
+}
+
+#gform_confirmation_wrapper_1 {
+	max-width: 400px;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.celebrate {
+	max-width: 300px;
+	margin: 20px auto;
+	display: block;
+}
+
 @media ( max-width: 645px ) {  
   #field_1_7, #field_1_8, #field_1_9, #field_1_10, #field_1_11, #field_1_13, .accordion-body .feedback  { 
   	order: 7; 
