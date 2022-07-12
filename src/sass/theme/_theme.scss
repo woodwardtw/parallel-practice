@@ -75,6 +75,13 @@
 }
 
 
+.help {
+	background-image: url('../imgs/question.svg');
+	background-position: center center;
+	background-size: 40px;
+	background-repeat: no-repeat;
+}
+
 @media ( max-width: 645px ) {  
   #field_1_7, #field_1_8, #field_1_9, #field_1_10, #field_1_11, #field_1_13, .accordion-body .feedback  { 
   	order: 7; 

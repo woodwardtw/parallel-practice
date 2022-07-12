@@ -121,9 +121,9 @@ function pp_table_maker($entry, $key){
     $comment_button = pp_comment_button($entry_id, $comment);
     if($form_user === get_the_author_meta('user_login')){
         echo "
-        <div class='accordion-item {$help_request}' data-entryid='{$entry_id}' data-pdate='{$date}' data-practice='{$lang_practice}' data-alt='{$alt_practice}' >
+        <div class='accordion-item' data-entryid='{$entry_id}' data-pdate='{$date}' data-practice='{$lang_practice}' data-alt='{$alt_practice}' >
             <h2 class='accordion-header' id='heading-{$key}'>
-              <button class='accordion-button {$collapse}' type='button' data-bs-toggle='collapse' data-bs-target='#collapse-{$key}' aria-expanded='{$aria}' aria-controls='collapse-{$key}'>
+              <button class='accordion-button {$collapse} {$help_request}' type='button' data-bs-toggle='collapse' data-bs-target='#collapse-{$key}' aria-expanded='{$aria}' aria-controls='collapse-{$key}'>
                 Entry {$date}
               </button>
             </h2>
