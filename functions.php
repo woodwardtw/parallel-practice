@@ -49,6 +49,19 @@ foreach ( $understrap_includes as $file ) {
 
 
 
+//randomize good images
+function pp_random_img(){
+	$path = get_template_directory() . '/imgs/yea/';
+	$url = get_template_directory_uri() . '/imgs/yea/';
+	//$files = list_files(get_template_directory();
+
+	$files = array_diff(scandir($path), array('..', '.'));
+	var_dump($files);
+	$size = count($files);
+	$random = rand(1, $size);
+	return "<img src='{$url}{$files[$random]}' alt='Celebration icon.'>";
+}
+add_shortcode( 'random-img', 'pp_random_img' );
 
 //LOGGER -- like frogger but more useful
 
