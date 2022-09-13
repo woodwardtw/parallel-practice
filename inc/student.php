@@ -106,7 +106,7 @@ function pp_table_maker($entry, $key){
     $comment = htmlspecialchars($entry[16],ENT_QUOTES);
 
     $reflection_selection = implode(', ', pp_learning_reflection_selections($entry));
-   
+    $reflection_type = htmlspecialchars($entry[22],ENT_QUOTES);
     $reflection_listening = htmlspecialchars($entry[18],ENT_QUOTES);
     $reflection_deverb = htmlspecialchars($entry[21],ENT_QUOTES);
     $reflection_notes = htmlspecialchars($entry[26],ENT_QUOTES);
@@ -115,6 +115,7 @@ function pp_table_maker($entry, $key){
     $reflection_other = htmlspecialchars($entry[30],ENT_QUOTES);
     $reflection_evs = htmlspecialchars($entry[29],ENT_QUOTES);
     $reflection_multitask = htmlspecialchars($entry[19],ENT_QUOTES);
+    $alt_parallel = htmlspecialchars($entry[32],ENT_QUOTES);
 
     $help_request = pp_help_flag($reflection_other);
 
@@ -135,7 +136,7 @@ function pp_table_maker($entry, $key){
         <div class='accordion-item' data-entryid='{$entry_id}' data-pdate='{$date}' data-practice='{$lang_practice}' data-alt='{$alt_practice}' >
             <h2 class='accordion-header' id='heading-{$key}'>
               <button class='accordion-button {$collapse} {$help_request}' type='button' data-bs-toggle='collapse' data-bs-target='#collapse-{$key}' aria-expanded='{$aria}' aria-controls='collapse-{$key}'>
-                Entry {$date}
+                {$reflection_type} Entry - {$date}
               </button>
             </h2>
             <div id='collapse-{$key}' class='accordion-collapse collapse {$state}' aria-labelledby='heading-{$key}' data-bs-parent='#practice-data'>
@@ -150,12 +151,20 @@ function pp_table_maker($entry, $key){
 
                 <div class='focus'>
                     <h2>Satisfaction Level</h2>
-                    {$lang_emotion}
+                    {$lang_emotion} of 5
                 </div>
 
                 <div class='focus alt'>
                     <h2>Satisfaction Level</h2>
-                    {$alt_emotion}                      
+                    {$alt_emotion} of 5                    
+                </div>
+
+                 <div class='parallel alt'>
+                    <h2>Parallel Level</h2>
+                    {$alt_parallel} of 5                    
+                </div>
+                 <div class='parallel alt'>
+                                  
                 </div>
               
                     {$reflection_listening_html} 
