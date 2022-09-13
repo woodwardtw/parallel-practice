@@ -89,16 +89,17 @@ function pp_table_maker($entry, $key){
     $form_user = $entry[14];
     $entry_id = $entry['id'];
     $date = substr($entry['date_created'], 0,10);
+    $course = $entry['22'];
     $lang_practice = htmlspecialchars($entry[1],ENT_QUOTES);
-    $lang_focus = htmlspecialchars($entry[3],ENT_QUOTES);
-    $lang_yea = htmlspecialchars($entry[4],ENT_QUOTES);
-    $lang_hmm = htmlspecialchars($entry[5],ENT_QUOTES);
-    $lang_strat = htmlspecialchars($entry[6],ENT_QUOTES);
+    // $lang_focus = htmlspecialchars($entry[3],ENT_QUOTES);
+    // $lang_yea = htmlspecialchars($entry[4],ENT_QUOTES);
+    // $lang_hmm = htmlspecialchars($entry[5],ENT_QUOTES);
+    // $lang_strat = htmlspecialchars($entry[6],ENT_QUOTES);
     $alt_practice = htmlspecialchars($entry[7],ENT_QUOTES);
-    $alt_focus = htmlspecialchars($entry[8],ENT_QUOTES);
-    $alt_yea = htmlspecialchars($entry[9],ENT_QUOTES);
-    $alt_hmm = htmlspecialchars($entry[10],ENT_QUOTES);
-    $alt_strat = htmlspecialchars($entry[11],ENT_QUOTES);
+    // $alt_focus = htmlspecialchars($entry[8],ENT_QUOTES);
+    // $alt_yea = htmlspecialchars($entry[9],ENT_QUOTES);
+    // $alt_hmm = htmlspecialchars($entry[10],ENT_QUOTES);
+    //$alt_strat = htmlspecialchars($entry[11],ENT_QUOTES);
     $comment = htmlspecialchars($entry[16],ENT_QUOTES);
 
     $reflection_selection = implode(', ', pp_learning_reflection_selections($entry));
