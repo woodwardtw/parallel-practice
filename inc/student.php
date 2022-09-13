@@ -91,6 +91,9 @@ function pp_table_maker($entry, $key){
     $date = substr($entry['date_created'], 0,10);
     $course = $entry['22'];
     $lang_practice = htmlspecialchars($entry[1],ENT_QUOTES);
+    $lang_emotion = $entry['23'];
+    //var_dump($entry);
+    $alt_emotion = $entry['24'];
     // $lang_focus = htmlspecialchars($entry[3],ENT_QUOTES);
     // $lang_yea = htmlspecialchars($entry[4],ENT_QUOTES);
     // $lang_hmm = htmlspecialchars($entry[5],ENT_QUOTES);
@@ -104,17 +107,24 @@ function pp_table_maker($entry, $key){
 
     $reflection_selection = implode(', ', pp_learning_reflection_selections($entry));
    
-    $reflection_learning = htmlspecialchars($entry[18],ENT_QUOTES);
-    $reflection_parallel = htmlspecialchars($entry[21],ENT_QUOTES);
-    $reflection_assistance = htmlspecialchars($entry[20],ENT_QUOTES);
-    $reflection_regulation = htmlspecialchars($entry[19],ENT_QUOTES);
+    $reflection_listening = htmlspecialchars($entry[18],ENT_QUOTES);
+    $reflection_deverb = htmlspecialchars($entry[21],ENT_QUOTES);
+    $reflection_notes = htmlspecialchars($entry[26],ENT_QUOTES);
+    $reflection_reexpress = htmlspecialchars($entry[27],ENT_QUOTES);
+    $reflection_delivery = htmlspecialchars($entry[28],ENT_QUOTES);
+    $reflection_other = htmlspecialchars($entry[30],ENT_QUOTES);
+    $reflection_evs = htmlspecialchars($entry[29],ENT_QUOTES);
+    $reflection_multitask = htmlspecialchars($entry[19],ENT_QUOTES);
 
-    $help_request = pp_help_flag($reflection_assistance);
+    $help_request = pp_help_flag($reflection_other);
 
-    $reflection_learning_html = pp_reflection_blocks($reflection_learning, 'Learning Reflection');
-    $reflection_parallel_html = pp_reflection_blocks($reflection_parallel, 'Parallel Reflection');
-    $reflection_assistance_html = pp_reflection_blocks($reflection_assistance, 'Assistance Request');
-    $reflection_regulation_html = pp_reflection_blocks($reflection_regulation, 'Self-Regulation Reflection');
+    $reflection_listening_html = pp_reflection_blocks($reflection_listening, 'Listening Reflection');
+    $reflection_deverb_html = pp_reflection_blocks($reflection_deverb, 'Deverbalization Reflection');
+    $reflection_notes_html = pp_reflection_blocks($reflection_notes, 'Note-Taking Reflection');
+    $reflection_delivery_html = pp_reflection_blocks($reflection_delivery, 'Delivery Reflection');
+    $reflection_other_html = pp_reflection_blocks($reflection_other, 'Other Reflection');
+    $reflection_evs_html = pp_reflection_blocks($reflection_evs, 'EVS Reflection');
+    $reflection_multitask_html = pp_reflection_blocks($reflection_multitask, 'Multitasking Reflection');
 
     $state = pp_accordion_state($key);
     $aria = pp_aria_state($key);
@@ -139,46 +149,28 @@ function pp_table_maker($entry, $key){
                 </div>
 
                 <div class='focus'>
-                    <h2>Focus</h2>
-                    {$lang_focus}
+                    <h2>Satisfaction Level</h2>
+                    {$lang_emotion}
                 </div>
 
                 <div class='focus alt'>
-                    <h2>Focus</h2>                      
-                    {$alt_focus}
+                    <h2>Satisfaction Level</h2>
+                    {$alt_emotion}                      
                 </div>
-
-                <div class='yea'>
-                    <h2>🥳 yeaaa</h2>                        
-                    {$lang_yea}
-                </div>
-
-                <div class='yea alt'>
-                    <h2>🥳 yeaaa</h2>
-                    {$alt_yea}
-                </div>
-
-                <div class='hmm'>
-                    <h2>🤔 hmmmm</h2>
-                    {$lang_hmm}
-                </div>
-
-                <div class='hmm alt'>
-                    <h2>🤔 hmmmm</h2>                        
-                    {$alt_hmm}
-                </div>
-
-                             
-                {$reflection_learning_html}
-                {$reflection_parallel_html}
-                {$reflection_assistance_html}
-                {$reflection_regulation_html}
+              
+                    {$reflection_listening_html} 
+                    {$reflection_deverb_html}
+                    {$reflection_notes_html}
+                    {$reflection_delivery_html }
+                    {$reflection_other_html}
+                    {$reflection_evs_html}
+                    {$reflection_multitask_html}
                 <div class='feedback full'>
                 <h2>Feedback</h2>
                     {$comment}
                 </div>
             </div>
-            <button type='button' data-bs-toggle='modal' data-bs-target='#logData' class='btn btn-primary edit-entry' data-entryid='{$entry_id}' data-practice='{$lang_practice}' data-focus ='{$lang_focus}' data-yea='{$lang_yea}' data-hmm='{$lang_hmm}' data-strat='{$lang_strat}' data-altpractice='{$alt_practice}' data-altfocus ='{$alt_focus}' data-altyea='{$alt_yea}' data-althmm='{$alt_hmm}' data-altstrat='{$alt_strat}' data-reflectSelection='{$reflection_selection}' data-reflect1='{$reflection_learning}' data-reflect2='{$reflection_parallel}' data-reflect3='{$reflection_assistance}' data-reflect4='{$reflection_parallel}'>Edit</button>
+            <button type='button' data-bs-toggle='modal' data-bs-target='#logData' class='btn btn-primary edit-entry' data-entryid='{$entry_id}' data-practice='{$lang_practice}' data-focus ='' data-yea='' data-hmm='' data-strat='' data-altpractice='{$alt_practice}' data-altfocus ='' data-altyea='' data-althmm='' data-altstrat='' data-reflectSelection='{$reflection_selection}' data-reflect1='' data-reflect2='' data-reflect3='' data-reflect4=''>Edit</button>
             {$comment_button}
         </div>
     </div>
@@ -252,6 +244,9 @@ function pp_practice_comment($entry, $form){
     GFAPI::delete_entry($entry['id']);//auto delete so we don't end up with duplicates
 }
 
+function pp_emotion_builder($number){
+
+}
 
 //make sure the author is correct ... did this correctly in gravity forms instead
 //add_action( 'save_post', 'pp_author_verify', 10, 3 );
