@@ -126,6 +126,8 @@ function pp_table_maker($entry, $key){
     //var_dump($consecutive);
     $simaltaneous = pp_multichoice($entry, '25', 5);
 
+    $share = pp_multichoice($entry, '34', 6);
+
     $help_request = pp_help_flag($reflection_other);
 
     $reflection_listening_html = pp_reflection_blocks($reflection_listening, 'Listening Reflection');
@@ -211,6 +213,7 @@ function pp_table_maker($entry, $key){
                 data-evs='{$reflection_evs}'
                 data-reexpress='{$reflection_reexpress}'
                 data-multitask='{$reflection_multitask}'
+                data-share='{$share}'
                 data-detail='{$reflection_detail}'
                
                 >
@@ -273,7 +276,7 @@ function pp_update_gfentry($entry, $form){
         GFAPI::update_entry_field( $entry_id, 30, $entry[30] );//other
 
         GFAPI::update_entry_field( $entry_id, 29, $entry[29] );//evs
-        GFAPI::update_entry_field( $entry_id, 18, $entry[18] );//listening   
+        GFAPI::update_entry_field( $entry_id, 19, $entry[19] );//multitasking   
 
         GFAPI::update_entry_field( $entry_id, 35, $entry[35] );//detail        
 

@@ -95,6 +95,7 @@ editButtons.forEach((button) => {
 	  let other = button.dataset.other;//
 	  let evs = button.dataset.evs;//*
 	  let multitask = button.dataset.multitask;//*
+	  let share = button.dataset.share;
 	  let detail = button.dataset.detail;
 	  // let reflectLearn = button.dataset.strat;
 
@@ -118,7 +119,7 @@ editButtons.forEach((button) => {
 
 	  pp_checkbox_check('#field_1_17', consecFocus);
 	  pp_checkbox_check('#field_1_25', simalFocus);
-	  pp_checkbox_check('#field_1_34', detail);
+	  pp_checkbox_check('#field_1_34', share);
 //get the form fields
 	  let formListening = document.querySelector('#input_1_18');
   	let formDeverb = document.querySelector('#input_1_21');	  
