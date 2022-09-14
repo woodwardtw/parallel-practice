@@ -78,15 +78,8 @@ editButtons.forEach((button) => {
 	  let practice = button.dataset.practice;
 	  let altpractice = button.dataset.altpractice;
 	  
-	  let focus = button.dataset.focus;
-	  let altfocus = button.dataset.altfocus;
-
-	  let yea = button.dataset.yea;
-	  let altyea = button.dataset.altyea;
-
-	  let hmm = button.dataset.hmm;
-	  let althmm = button.dataset.althmm;
-
+	  let emotion = button.dataset.satisfaction;
+	  let altEmotion = button.dataset.altsatisfaction;
 	  // let strategy = button.dataset.strat;
 	  // let altstrategy = button.dataset.altstrat;
 

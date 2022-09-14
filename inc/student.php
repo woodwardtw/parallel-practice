@@ -103,7 +103,7 @@ function pp_table_maker($entry, $key){
     $course = $entry['22'];
     $lang_practice = htmlspecialchars($entry[1],ENT_QUOTES);
     $lang_emotion = $entry['23'];
-    var_dump($entry);
+    //var_dump($entry);
     $alt_emotion = $entry['24'];
     // $lang_focus = htmlspecialchars($entry[3],ENT_QUOTES);
     // $lang_yea = htmlspecialchars($entry[4],ENT_QUOTES);
@@ -196,17 +196,27 @@ function pp_table_maker($entry, $key){
                 </div>
             </div>
             <button type='button' data-bs-toggle='modal' data-bs-target='#logData' class='btn btn-primary edit-entry' data-entryid='{$entry_id}' 
+                data-type='{$reflection_type}'
+                
                 data-practice='{$lang_practice}' 
+                data-altpractice='{$alt_practice}' 
+
                 data-satisfaction='{$lang_emotion}' 
+                data-altsatisfaction='{$alt_emotion}
+                
                 data-parallel='{$alt_parallel}' 
                 data-consecutive='{$consecutive}' 
                 data-simal='{$simaltaneous}' 
-                data-altpractice='{$alt_practice}' 
-                data-reflectSelection='{$reflection_selection}' 
-                data-reflect1='' 
-                data-reflect2='' 
-                data-reflect3='' 
-                data-reflect4=''>
+                data-listening='{$reflection_listening}'
+                data-deverb='{$reflection_deverb}'
+                data-notes='{$reflection_notes}'
+                data-delivery='{$reflection_delivery}'
+                data-other='{$reflection_other}'
+                data-evs='{$reflection_evs}'
+                data-multitask='{$reflection_multitask}'
+                data-detail='{$reflection_detail}'
+               
+                >
                 Edit</button>
             {$comment_button}
         </div>
