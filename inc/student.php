@@ -104,16 +104,9 @@ function pp_table_maker($entry, $key){
     $lang_practice = htmlspecialchars($entry[1],ENT_QUOTES);
     $lang_emotion = $entry['23'];
     //var_dump($entry);
-    $alt_emotion = $entry['24'];
-    // $lang_focus = htmlspecialchars($entry[3],ENT_QUOTES);
-    // $lang_yea = htmlspecialchars($entry[4],ENT_QUOTES);
-    // $lang_hmm = htmlspecialchars($entry[5],ENT_QUOTES);
-    // $lang_strat = htmlspecialchars($entry[6],ENT_QUOTES);
     $alt_practice = htmlspecialchars($entry[7],ENT_QUOTES);
-    // $alt_focus = htmlspecialchars($entry[8],ENT_QUOTES);
-    // $alt_yea = htmlspecialchars($entry[9],ENT_QUOTES);
-    // $alt_hmm = htmlspecialchars($entry[10],ENT_QUOTES);
-    //$alt_strat = htmlspecialchars($entry[11],ENT_QUOTES);
+    $alt_emotion = $entry['24'];
+
     $comment = htmlspecialchars($entry[16],ENT_QUOTES);
 
     $reflection_selection = implode(', ', pp_learning_reflection_selections($entry));
@@ -130,6 +123,7 @@ function pp_table_maker($entry, $key){
     $reflection_detail = htmlspecialchars($entry[35],ENT_QUOTES);
 
     $consecutive = pp_multichoice($entry, '17', 6);
+    //var_dump($consecutive);
     $simaltaneous = pp_multichoice($entry, '25', 5);
 
     $help_request = pp_help_flag($reflection_other);
@@ -252,7 +246,7 @@ add_action( 'gform_after_submission_1', 'pp_update_gfentry', 10, 2 );
 function pp_update_gfentry($entry, $form){
     if($entry[15] > 0){
         // $keys = array_keys($entry);
-        // var_dump($keys);
+       var_dump($entry);
         $entry_id = $entry[15];
         $lang_practice = $entry[1];//time
         $alt_practice = $entry[7];//alt time
@@ -299,24 +293,3 @@ function pp_practice_comment($entry, $form){
     GFAPI::delete_entry($entry['id']);//auto delete so we don't end up with duplicates
 }
 
-
-
-//make sure the author is correct ... did this correctly in gravity forms instead
-//add_action( 'save_post', 'pp_author_verify', 10, 3 );
-//add_action( 'update_post', 'pp_author_verify', 10, 3 );
-// function pp_author_verify($post_id, $post, $update){
-//     $login = get_post_meta($post_id, 'author_login', true);
-//     $author = get_the_author_meta('user_login', $post->post_author);
-//     if($login && $author && $login != $author && username_exists($login)){
-//         $user_id = get_user_by('user_login', $login)->ID;
-//         $author_fix = array(
-//           'ID'           => $post_id,
-//           'post_author'  => $user_id
-          
-//       );
-     
-//     // Update the post into the database
-//       wp_update_post( $author_fix );
-
-//     }
-// }
