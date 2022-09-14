@@ -103,7 +103,7 @@ function pp_table_maker($entry, $key){
     $course = $entry['22'];
     $lang_practice = htmlspecialchars($entry[1],ENT_QUOTES);
     $lang_emotion = $entry['23'];
-    //var_dump($entry);
+    var_dump($entry);
     $alt_emotion = $entry['24'];
     // $lang_focus = htmlspecialchars($entry[3],ENT_QUOTES);
     // $lang_yea = htmlspecialchars($entry[4],ENT_QUOTES);
@@ -251,36 +251,46 @@ add_action( 'gform_after_submission_1', 'pp_update_gfentry', 10, 2 );
 
 function pp_update_gfentry($entry, $form){
     if($entry[15] > 0){
-        $entry_id = $entry[15];
-        $lang_practice = $entry[1];
-        $lang_focus = $entry[3];
-        $lang_yea = $entry[4];
-        $lang_hmm = $entry[5];
-        $lang_strat = $entry[6];
-        $alt_practice = $entry[7];
-        $alt_focus = $entry[8];
-        $alt_yea = $entry[9];
-        $alt_hmm = $entry[10];
-        $alt_strat = $entry[11];
-        $alt_learning = $entry[18];
-        $alt_regulation = $entry[19];
-        $alt_assist = $entry[20];
-        $alt_parallel = $entry[21];
+        // $keys = array_keys($entry);
+        // var_dump($keys);
+        // $entry_id = $entry[15];
+        $lang_practice = $entry[1];//time
+        $alt_practice = $entry[7];//alt time
+
+        $lang_emotion = $entry[23];//satisfaction
+        $alt_emotion = $entry[24];//alt satsifaction
+
+        $parallel = $entry[32];
+
+
+        // $lang_yea = $entry[4];
+        // $lang_hmm = $entry[5];
+        // $lang_strat = $entry[6];
+        
+        // $alt_focus = $entry[8];
+        // $alt_yea = $entry[9];
+        // $alt_hmm = $entry[10];
+        // $alt_strat = $entry[11];
+        // $alt_learning = $entry[18];
+        // $alt_regulation = $entry[19];
+        // $alt_assist = $entry[20];
+        // $alt_parallel = $entry[21];
 
         GFAPI::update_entry_field( $entry_id, 1, $lang_practice );
-        GFAPI::update_entry_field( $entry_id, 3, $lang_focus );
-        GFAPI::update_entry_field( $entry_id, 4, $lang_yea );
-        GFAPI::update_entry_field( $entry_id, 5, $lang_hmm );
-        GFAPI::update_entry_field( $entry_id, 6, $lang_strat );
         GFAPI::update_entry_field( $entry_id, 7, $alt_practice );
-        GFAPI::update_entry_field( $entry_id, 8, $alt_focus );
-        GFAPI::update_entry_field( $entry_id, 9, $alt_yea );
-        GFAPI::update_entry_field( $entry_id, 10, $alt_hmm );
-        GFAPI::update_entry_field( $entry_id, 11, $alt_strat );
-        GFAPI::update_entry_field( $entry_id, 18, $alt_learning );
-        GFAPI::update_entry_field( $entry_id, 19, $alt_regulation );
-        GFAPI::update_entry_field( $entry_id, 20, $alt_assist);
-        GFAPI::update_entry_field( $entry_id, 21, $alt_parallel);
+
+        GFAPI::update_entry_field( $entry_id, 23, $lang_emotion );
+        GFAPI::update_entry_field( $entry_id, 23, $alt_emotion );
+        
+
+        // GFAPI::update_entry_field( $entry_id, 8, $alt_focus );
+        // GFAPI::update_entry_field( $entry_id, 9, $alt_yea );
+        // GFAPI::update_entry_field( $entry_id, 10, $alt_hmm );
+        // GFAPI::update_entry_field( $entry_id, 11, $alt_strat );
+        // GFAPI::update_entry_field( $entry_id, 18, $alt_learning );
+        // GFAPI::update_entry_field( $entry_id, 19, $alt_regulation );
+        // GFAPI::update_entry_field( $entry_id, 20, $alt_assist);
+        // GFAPI::update_entry_field( $entry_id, 21, $alt_parallel);
         GFAPI::delete_entry($entry['id']);//auto delete so we don't end up with duplicates
     }   
 
