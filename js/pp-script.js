@@ -84,6 +84,8 @@ editButtons.forEach((button) => {
 
 	  let parallel = button.dataset.parallel;
 	 
+	  let consecFocus = button.dataset.consecutive;
+	  let simalFocus = button.dataset.simal;
 
 	  let reflectLearn = button.dataset.strat;
 
@@ -105,8 +107,12 @@ editButtons.forEach((button) => {
 
 	  pp_hide_show(type);
 
-	  let consecChallenge = document.querySelector('#field_1_17');
-	  let simalChallenge = document.querySelector('#field_1_25');
+	  pp_checkbox_check('#field_1_17', consecFocus);
+	  pp_checkbox_check('#field_1_25', simalFocus);
+
+	  
+	  // let consecChallenge = document.querySelector('#field_1_17');
+	  // let simalChallenge = document.querySelector('#field_1_25');
 
 	  //let formEmotion = document.querySelector('#input_1_23');
 
@@ -172,6 +178,19 @@ function pp_radio_check(fieldId, selectedValue){
 	});
 }
 
+function pp_checkbox_check(fieldId, selectedChoices){
+	const selectedArray = selectedChoices.split(', ');
+	const field = document.querySelector(fieldId);
+	const options = field.querySelectorAll('input');
+
+	options.forEach((option) => {
+	  if(selectedArray.includes(option.value)){
+	    //console.log(emotion)
+	    option.checked = true
+	  }
+	});
+}
+
 
 //manual hide show based on type
 function pp_hide_show(type){
@@ -195,27 +214,27 @@ function pp_undisable(field){
 		})
 }
 
-//check the boxes
-function pp_check_the_boxes(response, button){
-		ids = ids.split(', ');
-		ids.forEach( function(id) {
-			if(document.querySelector('#choice_1_17_'+id)){
-				document.querySelector('#choice_1_17_'+id).checked = true;
-				pp_show_box_field(id, button);
-			}
-		});
-}
+// //check the boxes
+// function pp_check_the_boxes(response, button){
+// 		ids = ids.split(', ');
+// 		ids.forEach( function(id) {
+// 			if(document.querySelector('#choice_1_17_'+id)){
+// 				document.querySelector('#choice_1_17_'+id).checked = true;
+// 				pp_show_box_field(id, button);
+// 			}
+// 		});
+// }
 
-//unhide the elements based on the checkboxes
-function pp_show_box_field(id, button){
-	let realId = parseInt(id)+17;
-	document.querySelector('#field_1_'+realId).style = "display: block";
-	let response = document.querySelector('#input_1_'+realId);
-	response.disabled = false;
-	//console.log(button.dataset);
-	let buttonValue = button.getAttribute( 'data-reflect'+id );
-	response.value = buttonValue;
-}
+// //unhide the elements based on the checkboxes
+// function pp_show_box_field(id, button){
+// 	let realId = parseInt(id)+17;
+// 	document.querySelector('#field_1_'+realId).style = "display: block";
+// 	let response = document.querySelector('#input_1_'+realId);
+// 	response.disabled = false;
+// 	//console.log(button.dataset);
+// 	let buttonValue = button.getAttribute( 'data-reflect'+id );
+// 	response.value = buttonValue;
+// }
 
 
 jQuery('#logData').on('hidden.bs.modal', function () {
