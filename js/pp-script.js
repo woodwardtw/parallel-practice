@@ -87,9 +87,18 @@ editButtons.forEach((button) => {
 	  let consecFocus = button.dataset.consecutive;
 	  let simalFocus = button.dataset.simal;
 
-	  let reflectLearn = button.dataset.strat;
+	  let listening = button.dataset.listening;//*
+	  let deverb = button.dataset.deverb;//
+	  let notes = button.dataset.notes;//
+	  let reexpress = button.dataset.reexpress;//*
+	  let delivery = button.dataset.delivery;//*
+	  let other = button.dataset.other;//
+	  let evs = button.dataset.evs;//*
+	  let multitask = button.dataset.multitask;//*
+	  let detail = button.dataset.detail;
+	  // let reflectLearn = button.dataset.strat;
 
-	  let reflectBoxes = button.dataset.reflectselection;
+	  // let reflectBoxes = button.dataset.reflectselection;
 
 	  let entryid = button.dataset.entryid;	  		    
 
@@ -109,53 +118,33 @@ editButtons.forEach((button) => {
 
 	  pp_checkbox_check('#field_1_17', consecFocus);
 	  pp_checkbox_check('#field_1_25', simalFocus);
-
-	  
-	  // let consecChallenge = document.querySelector('#field_1_17');
-	  // let simalChallenge = document.querySelector('#field_1_25');
-
-	  //let formEmotion = document.querySelector('#input_1_23');
-
-	  // let formFocus = document.querySelector('#input_1_3');
-	  // let formAltFocus = document.querySelector('#input_1_8');	
-
-	  // let formYea = document.querySelector('#input_1_4');
-	  // let formAltYea = document.querySelector('#input_1_9');
-
-	  // let formHmm = document.querySelector('#input_1_5');
-	  // let formAltHmm = document.querySelector('#input_1_10');	
-
-	  // let formStrategy = document.querySelector('#input_1_6');
-	  // let formAltStrategy = document.querySelector('#input_1_11');	
+	  pp_checkbox_check('#field_1_34', detail);
+//get the form fields
+	  let formListening = document.querySelector('#input_1_18');
+  	let formDeverb = document.querySelector('#input_1_21');	  
+  	let formNotes = document.querySelector('#input_1_26');
+  	let formReexpress = document.querySelector('#input_1_27');	
+  	let formDelivery = document.querySelector('#input_1_28');	
+  	let formOther = document.querySelector('#input_1_30');	
+  	let formEvs = document.querySelector('#input_1_29');	
+  	let formMultitask = document.querySelector('#input_1_19');	
+  	let formDetail = document.querySelector('#input_1_35');	
 	
 	  let formEntryId = document.querySelector('#input_1_15');  
 
-//checkboxes
-	  // let learningPattern = document.querySelector('#choice_1_17_1');
-	  // let learningReflection = document.querySelector('#choice_1_17_2');	    
-	  // let learningAssistance = document.querySelector('#choice_1_17_3');
-	  // let learningRegulation = document.querySelector('#choice_1_17_4');	
-
+//set the form field values
 	  formPractice.value = practice;
 	  formAltPractice.value = altpractice;
 
-	  // formFocus.value = focus;
-	  // formAltFocus.value = altfocus;
-
-	  // formYea.value = yea;
-	  // formAltYea.value = altyea;	 
-
-	  // formHmm.value = hmm;
-	  // formAltHmm.value = althmm; 
-
-	  // if(reflectBoxes != ''){
-		 //  		  pp_check_the_boxes(reflectBoxes, button);
-		 //  }
-	  
-
-	  // formStrategy.value = strategy;
-	  // formAltStrategy.value = altstrategy; 	
-	  //document.querySelector('#choice_1_17_1').checked = true  
+	  pp_optional_reflect(listening, formListening);
+	  pp_optional_reflect(deverb, formDeverb);
+	  pp_optional_reflect(notes, formNotes);
+	  pp_optional_reflect(reexpress, formReexpress);
+	  pp_optional_reflect(delivery, formDelivery);
+	  pp_optional_reflect(other, formOther);
+	  pp_optional_reflect(evs, formEvs);
+	  pp_optional_reflect(multitask, formMultitask);
+	  pp_optional_reflect(detail, formDetail);
 
 	  formEntryId.value = entryid;
 	})
@@ -164,6 +153,15 @@ editButtons.forEach((button) => {
 
 
 });
+
+//optional reflections
+function pp_optional_reflect(value, element){
+	 if(value){
+	  	element.value = value;
+	  	element.disabled = false;
+	  	element.parentNode.parentNode.style.display = 'block'	
+	  }
+}
 
 //radio buttons
 function pp_radio_check(fieldId, selectedValue){

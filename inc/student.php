@@ -213,6 +213,7 @@ function pp_table_maker($entry, $key){
                 data-delivery='{$reflection_delivery}'
                 data-other='{$reflection_other}'
                 data-evs='{$reflection_evs}'
+                data-reexpress='{$reflection_reexpress}'
                 data-multitask='{$reflection_multitask}'
                 data-detail='{$reflection_detail}'
                
