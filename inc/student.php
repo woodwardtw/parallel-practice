@@ -196,7 +196,19 @@ function pp_table_maker($entry, $key){
                     {$comment}
                 </div>
             </div>
-            <button type='button' data-bs-toggle='modal' data-bs-target='#logData' class='btn btn-primary edit-entry' data-entryid='{$entry_id}' data-practice='{$lang_practice}' data-satisfaction='{$lang_emotion}' data-yea='' data-parallel='{$alt_parallel}' data-consecutive='{$consecutive}' data-altpractice='{$alt_practice}' data-altfocus ='' data-altyea='' data-althmm='' data-altstrat='' data-reflectSelection='{$reflection_selection}' data-reflect1='' data-reflect2='' data-reflect3='' data-reflect4=''>Edit</button>
+            <button type='button' data-bs-toggle='modal' data-bs-target='#logData' class='btn btn-primary edit-entry' data-entryid='{$entry_id}' 
+                data-practice='{$lang_practice}' 
+                data-satisfaction='{$lang_emotion}' 
+                data-parallel='{$alt_parallel}' 
+                data-consecutive='{$consecutive}' 
+                data-simal='{$simaltaneous}' 
+                data-altpractice='{$alt_practice}' 
+                data-reflectSelection='{$reflection_selection}' 
+                data-reflect1='' 
+                data-reflect2='' 
+                data-reflect3='' 
+                data-reflect4=''>
+                Edit</button>
             {$comment_button}
         </div>
     </div>
