@@ -82,9 +82,8 @@ editButtons.forEach((button) => {
 	  let emotion = button.dataset.satisfaction;
 	  let altEmotion = button.dataset.altsatisfaction;
 
-	   let parallel = button.dataset.parallel;
-	  // let strategy = button.dataset.strat;
-	  // let altstrategy = button.dataset.altstrat;
+	  let parallel = button.dataset.parallel;
+	 
 
 	  let reflectLearn = button.dataset.strat;
 
@@ -105,6 +104,10 @@ editButtons.forEach((button) => {
 	  pp_radio_check('#input_1_32', parallel);
 
 	  pp_hide_show(type);
+
+	  let consecChallenge = document.querySelector('#field_1_17');
+	  let simalChallenge = document.querySelector('#field_1_25');
+
 	  //let formEmotion = document.querySelector('#input_1_23');
 
 	  // let formFocus = document.querySelector('#input_1_3');
@@ -127,8 +130,8 @@ editButtons.forEach((button) => {
 	  // let learningAssistance = document.querySelector('#choice_1_17_3');
 	  // let learningRegulation = document.querySelector('#choice_1_17_4');	
 
-	  // formPractice.value = practice;
-	  // formAltPractice.value = altpractice;
+	  formPractice.value = practice;
+	  formAltPractice.value = altpractice;
 
 	  // formFocus.value = focus;
 	  // formAltFocus.value = altfocus;
@@ -175,23 +178,25 @@ function pp_hide_show(type){
 	if(type == 'Consecutive Interpretation'){
 		let field = document.querySelector('#field_1_17');
 		field.style.display = 'block';
-		let disabled = field.querySelectorAll(':disabled')
-		disabled.forEach(function(item){
-			item.disabled = false
-		})
+		pp_undisable(field);
 	}
 	if(type == 'Simultaneous Interpretation'){
 		let field = document.querySelector('#field_1_25');
 		field.style.display = 'block';
-		let disabled = field.querySelectorAll(':disabled')
-		disabled.forEach(function(item){
-			item.disabled = false
-		})
+		pp_undisable(field);
 	}
 }
 
+//undisable 
+function pp_undisable(field){
+	let disabled = field.querySelectorAll(':disabled')
+		disabled.forEach(function(item){
+			item.disabled = false
+		})
+}
+
 //check the boxes
-function pp_check_the_boxes(ids, button){
+function pp_check_the_boxes(response, button){
 		ids = ids.split(', ');
 		ids.forEach( function(id) {
 			if(document.querySelector('#choice_1_17_'+id)){
