@@ -142,6 +142,7 @@ function pp_table_maker($entry, $key){
     $reflection_evs_html = pp_reflection_blocks($reflection_evs, 'EVS Reflection');
     $reflection_multitask_html = pp_reflection_blocks($reflection_multitask, 'Multitasking Reflection');
     $reflection_detail_html = pp_reflection_blocks($reflection_detail, 'Additional Details');
+    $comment_html = pp_reflection_blocks($comment, 'Feedback');
 
     $state = pp_accordion_state($key);
     $aria = pp_aria_state($key);
@@ -182,7 +183,6 @@ function pp_table_maker($entry, $key){
                  <div class='parallel alt'>
                                   
                 </div>
-              
                     {$reflection_listening_html} 
                     {$reflection_deverb_html}
                     {$reflection_notes_html}
@@ -192,8 +192,7 @@ function pp_table_maker($entry, $key){
                     {$reflection_multitask_html}
                     {$reflection_detail_html}
                 <div class='feedback full'>
-                <h2>Feedback</h2>
-                    {$comment}
+                    {$comment_html}
                 </div>
             </div>
             <button type='button' data-bs-toggle='modal' data-bs-target='#logData' class='btn btn-primary edit-entry' data-entryid='{$entry_id}' 
@@ -221,9 +220,12 @@ function pp_table_maker($entry, $key){
 
 function pp_reflection_blocks($entry, $title){
     if($entry != ''){
+        $id = sanitize_title($title);
       $html =  "<div class='reflection full'>
                 <h2>{$title}</h2>
-                    {$entry}
+                    <div class='full' id='{$id}'>
+                        {$entry}
+                    </div>
                 </div>";
     return $html;
     } else {
