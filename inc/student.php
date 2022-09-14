@@ -84,6 +84,17 @@ function pp_help_flag($data){
     }
 }
 
+function pp_multichoice($entry, $base, $repeat){
+    $responses = array();
+    for ($x = 1; $x <= $repeat; $x++) {
+      $key = $base .'.'. $x;
+      if($entry[$key]){
+        array_push($responses, $entry[$key]);
+      }
+    }
+    return implode(', ', $responses);
+}
+
 function pp_table_maker($entry, $key){
     //var_dump(get_the_author_meta('user_login'));
     $form_user = $entry[14];
@@ -92,7 +103,7 @@ function pp_table_maker($entry, $key){
     $course = $entry['22'];
     $lang_practice = htmlspecialchars($entry[1],ENT_QUOTES);
     $lang_emotion = $entry['23'];
-    //var_dump($entry);
+    var_dump($entry);
     $alt_emotion = $entry['24'];
     // $lang_focus = htmlspecialchars($entry[3],ENT_QUOTES);
     // $lang_yea = htmlspecialchars($entry[4],ENT_QUOTES);
@@ -116,6 +127,10 @@ function pp_table_maker($entry, $key){
     $reflection_evs = htmlspecialchars($entry[29],ENT_QUOTES);
     $reflection_multitask = htmlspecialchars($entry[19],ENT_QUOTES);
     $alt_parallel = htmlspecialchars($entry[32],ENT_QUOTES);
+    $reflection_detail = htmlspecialchars($entry[35],ENT_QUOTES);
+
+    $consecutive = pp_multichoice($entry, '17', 6);
+    $simaltaneous = pp_multichoice($entry, '25', 5);
 
     $help_request = pp_help_flag($reflection_other);
 
@@ -126,6 +141,7 @@ function pp_table_maker($entry, $key){
     $reflection_other_html = pp_reflection_blocks($reflection_other, 'Other Reflection');
     $reflection_evs_html = pp_reflection_blocks($reflection_evs, 'EVS Reflection');
     $reflection_multitask_html = pp_reflection_blocks($reflection_multitask, 'Multitasking Reflection');
+    $reflection_detail_html = pp_reflection_blocks($reflection_detail, 'Additional Details');
 
     $state = pp_accordion_state($key);
     $aria = pp_aria_state($key);
@@ -174,12 +190,13 @@ function pp_table_maker($entry, $key){
                     {$reflection_other_html}
                     {$reflection_evs_html}
                     {$reflection_multitask_html}
+                    {$reflection_detail_html}
                 <div class='feedback full'>
                 <h2>Feedback</h2>
                     {$comment}
                 </div>
             </div>
-            <button type='button' data-bs-toggle='modal' data-bs-target='#logData' class='btn btn-primary edit-entry' data-entryid='{$entry_id}' data-practice='{$lang_practice}' data-focus ='' data-yea='' data-hmm='' data-strat='' data-altpractice='{$alt_practice}' data-altfocus ='' data-altyea='' data-althmm='' data-altstrat='' data-reflectSelection='{$reflection_selection}' data-reflect1='' data-reflect2='' data-reflect3='' data-reflect4=''>Edit</button>
+            <button type='button' data-bs-toggle='modal' data-bs-target='#logData' class='btn btn-primary edit-entry' data-entryid='{$entry_id}' data-practice='{$lang_practice}' data-satisfaction='{$lang_emotion}' data-yea='' data-parallel='{$alt_parallel}' data-consecutive='{$consecutive}' data-altpractice='{$alt_practice}' data-altfocus ='' data-altyea='' data-althmm='' data-altstrat='' data-reflectSelection='{$reflection_selection}' data-reflect1='' data-reflect2='' data-reflect3='' data-reflect4=''>Edit</button>
             {$comment_button}
         </div>
     </div>
