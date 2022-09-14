@@ -77,7 +77,7 @@ function pp_learning_reflection_selections($entry){
 
 
 function pp_help_flag($data){
-    if($data){
+    if(strpos($data, 'assistance')){
         return 'help';
     } else {
         return '';
@@ -121,14 +121,13 @@ function pp_table_maker($entry, $key){
     $reflection_multitask = htmlspecialchars($entry[19],ENT_QUOTES);
     $alt_parallel = htmlspecialchars($entry[32],ENT_QUOTES);
     $reflection_detail = htmlspecialchars($entry[35],ENT_QUOTES);
-
     $consecutive = pp_multichoice($entry, '17', 6);
     //var_dump($consecutive);
     $simaltaneous = pp_multichoice($entry, '25', 5);
 
     $share = pp_multichoice($entry, '34', 6);
 
-    $help_request = pp_help_flag($reflection_other);
+    $help_request = pp_help_flag($share);
 
     $reflection_listening_html = pp_reflection_blocks($reflection_listening, 'Listening Reflection');
     $reflection_deverb_html = pp_reflection_blocks($reflection_deverb, 'Deverbalization Reflection');
@@ -249,7 +248,7 @@ add_action( 'gform_after_submission_1', 'pp_update_gfentry', 10, 2 );
 function pp_update_gfentry($entry, $form){
     if($entry[15] > 0){
         // $keys = array_keys($entry);
-       var_dump($entry);
+       //var_dump($entry);
         $entry_id = $entry[15];
         $lang_practice = $entry[1];//time
         $alt_practice = $entry[7];//alt time
