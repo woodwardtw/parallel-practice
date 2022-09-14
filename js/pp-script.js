@@ -75,11 +75,14 @@ editButtons.forEach((button) => {
 	button.addEventListener('click', function (event) {
 //get data from previous submission	  
 	  // Extract info from data-bs-* attributes
+	  let type = button.dataset.type;
 	  let practice = button.dataset.practice;
 	  let altpractice = button.dataset.altpractice;
 	  
 	  let emotion = button.dataset.satisfaction;
 	  let altEmotion = button.dataset.altsatisfaction;
+
+	   let parallel = button.dataset.parallel;
 	  // let strategy = button.dataset.strat;
 	  // let altstrategy = button.dataset.altstrat;
 
@@ -94,8 +97,14 @@ editButtons.forEach((button) => {
 	  let formPractice = document.querySelector('#input_1_1');
 	  let formAltPractice = document.querySelector('#input_1_7');
 	  
+	  pp_radio_check('#input_1_22', type);
+
 	  pp_radio_check('#input_1_23', emotion);
 	  pp_radio_check('#input_1_24', altEmotion);
+
+	  pp_radio_check('#input_1_32', parallel);
+
+	  pp_hide_show(type);
 	  //let formEmotion = document.querySelector('#input_1_23');
 
 	  // let formFocus = document.querySelector('#input_1_3');
@@ -130,9 +139,9 @@ editButtons.forEach((button) => {
 	  // formHmm.value = hmm;
 	  // formAltHmm.value = althmm; 
 
-	  if(reflectBoxes != ''){
-		  		  pp_check_the_boxes(reflectBoxes, button);
-		  }
+	  // if(reflectBoxes != ''){
+		 //  		  pp_check_the_boxes(reflectBoxes, button);
+		 //  }
 	  
 
 	  // formStrategy.value = strategy;
@@ -160,6 +169,26 @@ function pp_radio_check(fieldId, selectedValue){
 	});
 }
 
+
+//manual hide show based on type
+function pp_hide_show(type){
+	if(type == 'Consecutive Interpretation'){
+		let field = document.querySelector('#field_1_17');
+		field.style.display = 'block';
+		let disabled = field.querySelectorAll(':disabled')
+		disabled.forEach(function(item){
+			item.disabled = false
+		})
+	}
+	if(type == 'Simultaneous Interpretation'){
+		let field = document.querySelector('#field_1_25');
+		field.style.display = 'block';
+		let disabled = field.querySelectorAll(':disabled')
+		disabled.forEach(function(item){
+			item.disabled = false
+		})
+	}
+}
 
 //check the boxes
 function pp_check_the_boxes(ids, button){
