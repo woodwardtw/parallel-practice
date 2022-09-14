@@ -137,6 +137,7 @@ function pp_table_maker($entry, $key){
     $reflection_listening_html = pp_reflection_blocks($reflection_listening, 'Listening Reflection');
     $reflection_deverb_html = pp_reflection_blocks($reflection_deverb, 'Deverbalization Reflection');
     $reflection_notes_html = pp_reflection_blocks($reflection_notes, 'Note-Taking Reflection');
+    $reflection_reexpress_html = pp_reflection_blocks($reflection_reexpress, 'Reexpression Reflection');
     $reflection_delivery_html = pp_reflection_blocks($reflection_delivery, 'Delivery Reflection');
     $reflection_other_html = pp_reflection_blocks($reflection_other, 'Other Reflection');
     $reflection_evs_html = pp_reflection_blocks($reflection_evs, 'EVS Reflection');
@@ -186,6 +187,7 @@ function pp_table_maker($entry, $key){
                     {$reflection_listening_html} 
                     {$reflection_deverb_html}
                     {$reflection_notes_html}
+                    {$reflection_reexpress_html}
                     {$reflection_delivery_html }
                     {$reflection_other_html}
                     {$reflection_evs_html}
