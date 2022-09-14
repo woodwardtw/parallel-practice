@@ -103,7 +103,7 @@ function pp_table_maker($entry, $key){
     $course = $entry['22'];
     $lang_practice = htmlspecialchars($entry[1],ENT_QUOTES);
     $lang_emotion = $entry['23'];
-    var_dump($entry);
+    //var_dump($entry);
     $alt_emotion = $entry['24'];
     // $lang_focus = htmlspecialchars($entry[3],ENT_QUOTES);
     // $lang_yea = htmlspecialchars($entry[4],ENT_QUOTES);
@@ -253,7 +253,7 @@ function pp_update_gfentry($entry, $form){
     if($entry[15] > 0){
         // $keys = array_keys($entry);
         // var_dump($keys);
-        // $entry_id = $entry[15];
+        $entry_id = $entry[15];
         $lang_practice = $entry[1];//time
         $alt_practice = $entry[7];//alt time
 
@@ -262,35 +262,27 @@ function pp_update_gfentry($entry, $form){
 
         $parallel = $entry[32];
 
-
-        // $lang_yea = $entry[4];
-        // $lang_hmm = $entry[5];
-        // $lang_strat = $entry[6];
-        
-        // $alt_focus = $entry[8];
-        // $alt_yea = $entry[9];
-        // $alt_hmm = $entry[10];
-        // $alt_strat = $entry[11];
-        // $alt_learning = $entry[18];
-        // $alt_regulation = $entry[19];
-        // $alt_assist = $entry[20];
-        // $alt_parallel = $entry[21];
-
-        GFAPI::update_entry_field( $entry_id, 1, $lang_practice );
+//updates
+        GFAPI::update_entry_field( $entry_id, 1, $lang_practice );//times
         GFAPI::update_entry_field( $entry_id, 7, $alt_practice );
 
-        GFAPI::update_entry_field( $entry_id, 23, $lang_emotion );
-        GFAPI::update_entry_field( $entry_id, 23, $alt_emotion );
+        GFAPI::update_entry_field( $entry_id, 23, $lang_emotion );//satisfaction
+        GFAPI::update_entry_field( $entry_id, 24, $alt_emotion );
         
+        GFAPI::update_entry_field( $entry_id, 32, $parallel );//parallel nature
 
-        // GFAPI::update_entry_field( $entry_id, 8, $alt_focus );
-        // GFAPI::update_entry_field( $entry_id, 9, $alt_yea );
-        // GFAPI::update_entry_field( $entry_id, 10, $alt_hmm );
-        // GFAPI::update_entry_field( $entry_id, 11, $alt_strat );
-        // GFAPI::update_entry_field( $entry_id, 18, $alt_learning );
-        // GFAPI::update_entry_field( $entry_id, 19, $alt_regulation );
-        // GFAPI::update_entry_field( $entry_id, 20, $alt_assist);
-        // GFAPI::update_entry_field( $entry_id, 21, $alt_parallel);
+        GFAPI::update_entry_field( $entry_id, 18, $entry[18] );//listening
+        GFAPI::update_entry_field( $entry_id, 21, $entry[21] );//deverb
+        GFAPI::update_entry_field( $entry_id, 26, $entry[26] );//notes
+        GFAPI::update_entry_field( $entry_id, 27, $entry[27] );//reexpression
+        GFAPI::update_entry_field( $entry_id, 28, $entry[28] );//delivery
+        GFAPI::update_entry_field( $entry_id, 30, $entry[30] );//other
+
+        GFAPI::update_entry_field( $entry_id, 29, $entry[29] );//evs
+        GFAPI::update_entry_field( $entry_id, 18, $entry[18] );//listening   
+
+        GFAPI::update_entry_field( $entry_id, 35, $entry[35] );//detail        
+
         GFAPI::delete_entry($entry['id']);//auto delete so we don't end up with duplicates
     }   
 
@@ -307,9 +299,7 @@ function pp_practice_comment($entry, $form){
     GFAPI::delete_entry($entry['id']);//auto delete so we don't end up with duplicates
 }
 
-function pp_emotion_builder($number){
 
-}
 
 //make sure the author is correct ... did this correctly in gravity forms instead
 //add_action( 'save_post', 'pp_author_verify', 10, 3 );
