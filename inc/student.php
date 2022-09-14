@@ -202,7 +202,7 @@ function pp_table_maker($entry, $key){
                 data-altpractice='{$alt_practice}' 
 
                 data-satisfaction='{$lang_emotion}' 
-                data-altsatisfaction='{$alt_emotion}
+                data-altsatisfaction='{$alt_emotion}'
                 
                 data-parallel='{$alt_parallel}' 
                 data-consecutive='{$consecutive}' 

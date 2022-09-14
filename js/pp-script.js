@@ -94,14 +94,18 @@ editButtons.forEach((button) => {
 	  let formPractice = document.querySelector('#input_1_1');
 	  let formAltPractice = document.querySelector('#input_1_7');
 	  
-	  let formFocus = document.querySelector('#input_1_3');
-	  let formAltFocus = document.querySelector('#input_1_8');	
+	  pp_radio_check('#input_1_23', emotion);
+	  pp_radio_check('#input_1_24', altEmotion);
+	  //let formEmotion = document.querySelector('#input_1_23');
 
-	  let formYea = document.querySelector('#input_1_4');
-	  let formAltYea = document.querySelector('#input_1_9');
+	  // let formFocus = document.querySelector('#input_1_3');
+	  // let formAltFocus = document.querySelector('#input_1_8');	
 
-	  let formHmm = document.querySelector('#input_1_5');
-	  let formAltHmm = document.querySelector('#input_1_10');	
+	  // let formYea = document.querySelector('#input_1_4');
+	  // let formAltYea = document.querySelector('#input_1_9');
+
+	  // let formHmm = document.querySelector('#input_1_5');
+	  // let formAltHmm = document.querySelector('#input_1_10');	
 
 	  // let formStrategy = document.querySelector('#input_1_6');
 	  // let formAltStrategy = document.querySelector('#input_1_11');	
@@ -114,17 +118,17 @@ editButtons.forEach((button) => {
 	  // let learningAssistance = document.querySelector('#choice_1_17_3');
 	  // let learningRegulation = document.querySelector('#choice_1_17_4');	
 
-	  formPractice.value = practice;
-	  formAltPractice.value = altpractice;
+	  // formPractice.value = practice;
+	  // formAltPractice.value = altpractice;
 
-	  formFocus.value = focus;
-	  formAltFocus.value = altfocus;
+	  // formFocus.value = focus;
+	  // formAltFocus.value = altfocus;
 
-	  formYea.value = yea;
-	  formAltYea.value = altyea;	 
+	  // formYea.value = yea;
+	  // formAltYea.value = altyea;	 
 
-	  formHmm.value = hmm;
-	  formAltHmm.value = althmm; 
+	  // formHmm.value = hmm;
+	  // formAltHmm.value = althmm; 
 
 	  if(reflectBoxes != ''){
 		  		  pp_check_the_boxes(reflectBoxes, button);
@@ -142,6 +146,19 @@ editButtons.forEach((button) => {
 
 
 });
+
+//radio buttons
+function pp_radio_check(fieldId, selectedValue){
+	const formEmotion = document.querySelector(fieldId);
+	const options = formEmotion.querySelectorAll('input');
+
+	options.forEach((option) => {
+	  if(option.value == selectedValue){
+	    //console.log(emotion)
+	    option.checked = true
+	  }
+	});
+}
 
 
 //check the boxes
