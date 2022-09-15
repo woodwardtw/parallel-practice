@@ -129,4 +129,53 @@ function pp_student_page_maker($user_id, $email, $username){
 
 }
 
-pp_bulk_maker($students);
+//pp_bulk_maker($students);
+
+//login shortcode
+
+function pp_login_shortcode(){
+    global $post;
+    global $wp;
+    $url = get_site_url();
+    $current_url = home_url( add_query_arg( array(), $wp->request ) );
+    if(!is_user_logged_in()){
+        $args = array(
+            'echo'  => true,
+        );
+        echo wp_login_form();
+    } 
+    if(is_user_logged_in()){
+        $user_id = get_current_user_id();
+        if (!pp_user_has_role($user_id, 'p_student') && current_user_can('administrator')){
+            echo 'hi admin';
+            pp_list_students();
+        }
+    }
+}
+
+add_shortcode( 'login', 'pp_login_shortcode' );
+
+function pp_list_students(){
+    $args = array(
+          'post_type' => 'student',
+          'post_status' => 'publish',
+          'posts_per_page' => 50,
+          'orderby'     => 'title',
+          'order' => 'ASC'
+    );
+
+    $the_query = new WP_Query( $args );
+
+    // The Loop
+    if ( $the_query->have_posts() ) :
+    while ( $the_query->have_posts() ) : $the_query->the_post();
+      // Do Stuff
+        $title = get_the_title();
+        $link = get_permalink();
+        echo "<div class='student-link'><a href='{$link}'>{$title}</a></div>";
+    endwhile;
+    endif;
+
+    // Reset Post Data
+    wp_reset_postdata();
+}
