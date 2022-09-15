@@ -192,8 +192,10 @@ add_filter('the_title', 'pp_student_title_filter');
 function pp_student_title_filter($title) {
    global $post;
    $author_id = $post->post_author;
-   if(get_the_author_meta('display_name', $author_id) && $post->post_type === 'student'){
-        return get_the_author_meta('display_name', $author_id);
+   if(get_the_author_meta('last_name', $author_id) && get_the_author_meta('first_name', $author_id) && $post->post_type === 'student'){
+    $last = get_the_author_meta('last_name', $author_id);
+    $first = get_the_author_meta('first_name', $author_id);
+        return "{$last}, {$first}";
    } else {
     return $title;
    }
