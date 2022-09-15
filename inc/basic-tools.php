@@ -91,7 +91,8 @@ function remove_admin_bar() {
 }
 
 
-//MAKE STUDENTS AND MAKE STUDENT PAGES
+//MAKE STUDENTS AND MAKE STUDENT PAGES ***************************************************************
+//make this into something real in the future with CSV upload option
 $students = ['usera@foo.com','userb@bar.com'];
 
 function pp_bulk_maker($students){
@@ -147,7 +148,9 @@ function pp_login_shortcode(){
     if(is_user_logged_in()){
         $user_id = get_current_user_id();
         if (!pp_user_has_role($user_id, 'p_student') && current_user_can('administrator')){
-            echo 'hi admin';
+            $current_user = wp_get_current_user();
+            $name = $current_user->user_nicename;
+            echo "<h2>Hi {$name}!</h2>";
             pp_list_students();
         }
     }
@@ -168,12 +171,14 @@ function pp_list_students(){
 
     // The Loop
     if ( $the_query->have_posts() ) :
+        echo "<ol>";
     while ( $the_query->have_posts() ) : $the_query->the_post();
       // Do Stuff
         $title = get_the_title();
         $link = get_permalink();
-        echo "<div class='student-link'><a href='{$link}'>{$title}</a></div>";
+        echo "<li class='student-link'><a href='{$link}'>{$title}</a></li>";
     endwhile;
+    echo "</ol>";
     endif;
 
     // Reset Post Data
