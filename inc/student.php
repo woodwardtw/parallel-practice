@@ -14,6 +14,7 @@ defined( 'ABSPATH' ) || exit;
 function pp_practice_log(){
     global $post;
     $user_login = get_the_author_meta('user_login');
+    //var_dump($user_login);
     $form_id = 1;//FORM ID
 
     $search_criteria['field_filters'][] = array( 'key' => '14', 'value' => $user_login);

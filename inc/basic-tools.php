@@ -29,8 +29,7 @@ function pp_make_students(){
     }
 }
 
-
-//redirections
+//redirection
 add_action('template_redirect', 'pp_user_redirection');
 
 function pp_user_redirection(){
@@ -38,17 +37,16 @@ function pp_user_redirection(){
     global $wp;
     $url = get_site_url();
     $current_url = home_url( add_query_arg( array(), $wp->request ) );
-    //var_dump($current_url);
     if(!is_user_logged_in() && $current_url != $url . '/register'){
         wp_redirect($url . '/register'); 
         exit;
     }
-    if(is_user_logged_in()){
+    else if(is_user_logged_in()){
         $user_id = get_current_user_id();
+        $slug = wp_get_current_user()->user_login;
         if(pp_user_has_role($user_id, 'p_student')){
-            $slug = wp_get_current_user()->user_login;
-            if($post->post_name != $slug){
-                wp_redirect($url . '/' . $slug); 
+            if($post->post_name != $slug && $current_url != $url . '/student/' . $slug){
+                wp_redirect($url . '/student/' . $slug); 
                 exit;
             }
         }
@@ -91,3 +89,44 @@ function remove_admin_bar() {
       show_admin_bar(false);
     }
 }
+
+
+//MAKE STUDENTS AND MAKE STUDENT PAGES
+$students = ['usera@foo.com','userb@bar.com'];
+
+function pp_bulk_maker($students){
+    foreach ($students as $key => $student) {
+        // code...
+        pp_student_maker($student);
+    }
+}
+function pp_student_maker($email){
+    $username = explode('@',$email)[0];
+    $userdata = array(
+        'user_pass'             => '***PleaseChangeMeQuick!***',  //(string) The plain-text user password.
+        'user_login'            => $username,  //(string) The user's login username.
+        'user_email'            => $email,  //(string) The user email address.
+        'show_admin_bar_front'  => 'false',  //(string|bool) Whether to display the Admin Bar for the user on the site's front end. Default true.
+        'role'                  => 'p_student',  //(string) User's role.
+    );
+    $user_id = wp_insert_user($userdata);
+    pp_student_page_maker($user_id, $email, $username);
+}
+
+function pp_student_page_maker($user_id, $email, $username){
+    $args = array(
+      'post_title'    => $username,
+      'post_content'  => ' ',
+      'post_status'   => 'publish',
+      'post_author'   => $user_id,
+      'post_type'     => 'student'  
+    );
+
+    // Insert the post into the database
+    $post_id = wp_insert_post( $args );
+    update_post_meta($post_id, 'author_email', $email);
+    update_post_meta($post_id, 'author_login', $username);
+
+}
+
+pp_bulk_maker($students);

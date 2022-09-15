@@ -36,7 +36,6 @@ defined( 'ABSPATH' ) || exit;
 		</button>
 	<?php endif;?>
 	</div><!-- .entry-content -->
-
 	<footer class="entry-footer">
 		<a href="<?php echo wp_logout_url();?>">logout</a>
 		<!-- Modal -->
@@ -74,3 +73,4 @@ defined( 'ABSPATH' ) || exit;
 	</footer><!-- .entry-footer -->
 
 </article><!-- #post-## -->
+
