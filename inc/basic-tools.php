@@ -184,3 +184,17 @@ function pp_list_students(){
     // Reset Post Data
     wp_reset_postdata();
 }
+
+
+//rename student posts if user has set first last names
+
+add_filter('the_title', 'pp_student_title_filter');
+function pp_student_title_filter($title) {
+   global $post;
+   $author_id = $post->post_author;
+   if(get_the_author_meta('display_name', $author_id) && $post->post_type === 'student'){
+        return get_the_author_meta('display_name', $author_id);
+   } else {
+    return $title;
+   }
+}
