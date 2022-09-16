@@ -203,14 +203,15 @@ function pp_preview_counter($user_login){
     $entries = GFAPI::get_entries($form_id, $search_criteria, $sorting, $paging, $total_count );
     if(sizeof($entries) === 0){
         $count = 0;
-        $date = 'No entries';
+        $clean_date = 'No entries';
     }
     else {
         $count = sizeof($entries);    
-        $date = $entries[0]['date_created'];
+        $date = date_create($entries[0]['date_created']);
+        $clean_date = date_format($date, 'Y-m-d');
     } 
     array_push($data, $count);
-    array_push($data, $date);
+    array_push($data, $clean_date);
     return $data;
 }
 

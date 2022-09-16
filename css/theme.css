@@ -16697,6 +16697,10 @@ figure.woocommerce-product-gallery__wrapper {
   font-weight: 100;
 }
 
+.date-it {
+  font-size: 0.9rem;
+}
+
 @media (max-width: 645px) {
   #field_1_7, #field_1_8, #field_1_9, #field_1_10, #field_1_11, #field_1_13, .accordion-body .feedback {
     -ms-flex-order: 7;
