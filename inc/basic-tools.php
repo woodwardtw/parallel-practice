@@ -177,9 +177,10 @@ function pp_list_students(){
         $title = get_the_title();
         $link = get_permalink();
         $user_login = get_the_author_meta('user_login');
-        $count = pp_preview_counter($user_login);
+        $count = pp_preview_counter($user_login)[0];
+        $date = pp_preview_counter($user_login)[1];
         $chart = pp_bar_chart($count);
-        echo "<li class='student-link'><a href='{$link}'>{$title}</a>
+        echo "<li class='student-link'><a href='{$link}'>{$title}</a> - <span class='date-it'>{$date}</span>
                 <div class='chart-it'>{$chart} <span class='count-it'>{$count}</span></div>
             </li>";
     endwhile;
@@ -192,6 +193,7 @@ function pp_list_students(){
 
 function pp_preview_counter($user_login){     
     //var_dump($user_login);
+    $data = array();
     $form_id = 1;//FORM ID
 
     $search_criteria['field_filters'][] = array( 'key' => '14', 'value' => $user_login);
@@ -199,12 +201,22 @@ function pp_preview_counter($user_login){
     $sorting         = array();
     $paging          = array( 'offset' => 0, 'page_size' => 500);
     $entries = GFAPI::get_entries($form_id, $search_criteria, $sorting, $paging, $total_count );
-    return sizeof($entries);
+    if(sizeof($entries) === 0){
+        $count = 0;
+        $date = 'No entries';
+    }
+    else {
+        $count = sizeof($entries);    
+        $date = $entries[0]['date_created'];
+    } 
+    array_push($data, $count);
+    array_push($data, $date);
+    return $data;
 }
 
 function pp_bar_chart($count){
     $bars = '';
-    for ($x = 0; $x <= $count; $x++) {
+    for ($x = 1; $x <= $count; $x++) {
       $bars = $bars . "|";
     }
     return $bars;
