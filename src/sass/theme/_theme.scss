@@ -133,6 +133,33 @@
 	background-repeat: no-repeat;
 }
 
+//front page chart
+
+.student-link {
+	margin: 10px 0;
+}
+
+.student-link a {
+	font-size: 1.3rem;
+	font-weight: 700;
+}
+
+.count-it{
+	padding: 0 4px;
+	background-color: $primary;
+	float:right;
+	color: #fff;
+	min-width: 30px;
+	text-align: center;
+}
+
+.chart-it {
+	width: 300px;
+	background-color: $light-blue;
+	color: $primary;
+	font-weight: 100;
+}
+
 @media ( max-width: 645px ) {  
   #field_1_7, #field_1_8, #field_1_9, #field_1_10, #field_1_11, #field_1_13, .accordion-body .feedback  { 
   	order: 7; 

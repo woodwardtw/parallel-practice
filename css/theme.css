@@ -16672,6 +16672,31 @@ figure.woocommerce-product-gallery__wrapper {
   background-repeat: no-repeat;
 }
 
+.student-link {
+  margin: 10px 0;
+}
+
+.student-link a {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.count-it {
+  padding: 0 4px;
+  background-color: #022543;
+  float: right;
+  color: #fff;
+  min-width: 30px;
+  text-align: center;
+}
+
+.chart-it {
+  width: 300px;
+  background-color: #e5f1fa;
+  color: #022543;
+  font-weight: 100;
+}
+
 @media (max-width: 645px) {
   #field_1_7, #field_1_8, #field_1_9, #field_1_10, #field_1_11, #field_1_13, .accordion-body .feedback {
     -ms-flex-order: 7;

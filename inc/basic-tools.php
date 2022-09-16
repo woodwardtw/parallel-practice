@@ -179,7 +179,9 @@ function pp_list_students(){
         $user_login = get_the_author_meta('user_login');
         $count = pp_preview_counter($user_login);
         $chart = pp_bar_chart($count);
-        echo "<li class='student-link'><a href='{$link}'>{$title}</a> - {$count} <div class='chart-it'>{$chart}</div></li>";
+        echo "<li class='student-link'><a href='{$link}'>{$title}</a>
+                <div class='chart-it'>{$chart} <span class='count-it'>{$count}</span></div>
+            </li>";
     endwhile;
     echo "</ol>";
     endif;
