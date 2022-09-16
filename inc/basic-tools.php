@@ -176,7 +176,10 @@ function pp_list_students(){
       // Do Stuff
         $title = get_the_title();
         $link = get_permalink();
-        echo "<li class='student-link'><a href='{$link}'>{$title}</a></li>";
+        $user_login = get_the_author_meta('user_login');
+        $count = pp_preview_counter($user_login);
+        $chart = pp_bar_chart($count);
+        echo "<li class='student-link'><a href='{$link}'>{$title}</a> - {$count} <div class='chart-it'>{$chart}</div></li>";
     endwhile;
     echo "</ol>";
     endif;
@@ -185,6 +188,25 @@ function pp_list_students(){
     wp_reset_postdata();
 }
 
+function pp_preview_counter($user_login){     
+    //var_dump($user_login);
+    $form_id = 1;//FORM ID
+
+    $search_criteria['field_filters'][] = array( 'key' => '14', 'value' => $user_login);
+
+    $sorting         = array();
+    $paging          = array( 'offset' => 0, 'page_size' => 500);
+    $entries = GFAPI::get_entries($form_id, $search_criteria, $sorting, $paging, $total_count );
+    return sizeof($entries);
+}
+
+function pp_bar_chart($count){
+    $bars = '';
+    for ($x = 0; $x <= $count; $x++) {
+      $bars = $bars . "|";
+    }
+    return $bars;
+}
 
 //rename student posts if user has set first last names
 
