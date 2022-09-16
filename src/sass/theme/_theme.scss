@@ -140,15 +140,16 @@
 	transition: all .4s ease;
 	padding: 10px;
 	min-height: 80px;
+	border-bottom: 2px solid $light-gray;
 }
 
 .student-link:hover {
 	background-color: yellow;
 }
 
-.student-link:nth-of-type(odd) {
-	border-bottom: 2px solid $light-gray;
-}
+// .student-link:nth-of-type(odd) {
+	
+// }
 
 .student-link a {
 	font-size: 1.3rem;
