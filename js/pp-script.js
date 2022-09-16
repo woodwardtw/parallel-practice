@@ -238,3 +238,7 @@ editButtons.forEach((button) => {
 jQuery('#comment').on('hidden.bs.modal', function () {
  location.reload();
 })
+
+jQuery('#profile').on('hidden.bs.modal', function () {
+ location.reload();
+})

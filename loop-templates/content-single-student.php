@@ -14,6 +14,9 @@ defined( 'ABSPATH' ) || exit;
 	<header class="entry-header">
 
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+		<button id="profileButton" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#profile">
+		  Edit Your Name
+		</button>
 
 	</header><!-- .entry-header -->
 
@@ -33,7 +36,7 @@ defined( 'ABSPATH' ) || exit;
 		?>
 		<button id="logButton" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#logData">
 		  Add practice
-		</button>
+		</button>		
 	<?php endif;?>
 	</div><!-- .entry-content -->
 	<footer class="entry-footer">
@@ -67,7 +70,22 @@ defined( 'ABSPATH' ) || exit;
 		    </div>
 		  </div>
 		</div>
-		<!--modal end-->		
+		<!--modal end-->
+		<!-- Modal -->
+		<div class="modal fade" id="profile" tabindex="-1" aria-labelledby="profile-title" aria-hidden="true">
+		  <div class="modal-dialog modal-xl">
+		    <div class="modal-content">
+		      <div class="modal-body">
+		      	<h2 id="profile-title">Update your name</h2>
+		       <?php echo do_shortcode('[gravityform id="5" title="false" description="false" ajax="true"]')?>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		<!--modal end-->				
 		<?php understrap_entry_footer(); ?>
 
 	</footer><!-- .entry-footer -->
