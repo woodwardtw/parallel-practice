@@ -137,6 +137,16 @@
 
 .student-link {
 	margin: 10px 0;
+	transition: all .4s ease;
+	padding: 10px;
+}
+
+.student-link:hover {
+	background-color: yellow;
+}
+
+.student-link:nth-of-type(odd) {
+	border-bottom: 2px solid $light-gray;
 }
 
 .student-link a {
