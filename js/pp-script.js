@@ -169,15 +169,21 @@ function modalStudentComments(btnSrc){
   let multitask = btnSrc.dataset.multitask;//*
   let share = btnSrc.dataset.share;
   let detail = btnSrc.dataset.detail;
-  let comments = 
-
+  allComments.push(listening,deverb,notes,reexpress,delivery,other,evs,multitask,share,detail);
+  let comments = condenseStuComments(allComments)
   destination.innerHTML = destination.innerHTML + comments;
 }
 
-function condenseStuComments(comment){
-	if(comment =! ''{
-
-	})
+function condenseStuComments(allComments){
+	let html = '';
+	allComments.forEach((element) => {
+			if(element != ''){
+				html = html + `<p>${element}</p>`
+		}
+  
+	});
+	return html;
+	
 }
 
 //optional reflections
