@@ -180,7 +180,7 @@ function pp_list_students(){
         $count = pp_preview_counter($user_login)[0];
         $date = pp_preview_counter($user_login)[1];
         $chart = pp_bar_chart($count);
-        echo "<li class='student-link'><a href='{$link}'>{$title}</a> - <span class='date-it'>{$date}</span>
+        echo "<li class='student-link' data-date='{$date}'><a href='{$link}'>{$title}</a> - <span class='date-it'>{$date}</span>
                 <div class='chart-it'>{$chart} <span class='count-it'>{$count}</span></div>
             </li>";
     endwhile;
