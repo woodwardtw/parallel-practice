@@ -193,7 +193,7 @@ function pp_table_maker($entry, $key){
                     {$comment_html}
                 </div>
             </div>
-            <button type='button' data-bs-toggle='modal' data-bs-target='#logData' class='btn btn-primary edit-entry' data-entryid='{$entry_id}' 
+            <button id='btn-{$entry_id}' type='button' data-bs-toggle='modal' data-bs-target='#logData' class='btn btn-primary edit-entry' data-entryid='{$entry_id}' 
                 data-type='{$reflection_type}'
                 
                 data-practice='{$lang_practice}' 

@@ -16684,6 +16684,20 @@ figure.woocommerce-product-gallery__wrapper {
   border: 0;
 }
 
+.comment-layout {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.comment-layout .comment-block {
+  width: 45%;
+  max-height: 95%;
+  overflow-y: scroll;
+}
+
 .student-link {
   margin: 10px 0;
   transition: all 0.4s ease;

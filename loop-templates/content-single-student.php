@@ -56,13 +56,19 @@ defined( 'ABSPATH' ) || exit;
 		  </div>
 		</div>
 		<!--modal end-->	
-		<!-- Modal -->
+		<!-- Comment Modal -->
 		<div class="modal fade" id="comment" tabindex="-1" aria-labelledby="practice-title" aria-hidden="true">
 		  <div class="modal-dialog modal-xl">
 		    <div class="modal-content">
 		      <div class="modal-body">
 		      	<h2 id="practice-title">Comment</h2>
-		       <?php echo do_shortcode('[gravityform id="4" title="false" description="false" ajax="true"]')?>
+		      	<div class="comment-layout">
+		      		<div class="comment-block" id="student-input">
+		      			
+		      		</div>
+		      		<div class="comment-block" id="comment-form">
+		     		  <?php echo do_shortcode('[gravityform id="4" title="false" description="false" ajax="true"]')?>
+		     		</div>
 		      </div>
 		      <div class="modal-footer">
 		        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -71,7 +77,7 @@ defined( 'ABSPATH' ) || exit;
 		  </div>
 		</div>
 		<!--modal end-->
-		<!-- Modal -->
+		<!-- Name update Modal -->
 		<div class="modal fade" id="profile" tabindex="-1" aria-labelledby="profile-title" aria-hidden="true">
 		  <div class="modal-dialog modal-xl">
 		    <div class="modal-content">

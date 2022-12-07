@@ -145,6 +145,18 @@
 	border: 0;
 }
 
+.comment-layout {
+	display: flex;
+	flex-wrap: wrap;
+  gap: 20px;
+}
+
+.comment-layout .comment-block {
+	width: 45%;
+	max-height: 95%;
+	overflow-y: scroll;
+}
+
 //front page chart
 
 .student-link {

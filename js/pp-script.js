@@ -155,6 +155,31 @@ editButtons.forEach((button) => {
 
 });
 
+function modalStudentComments(btnSrc){
+	const destination = document.querySelector('#student-input');
+	console.log(btnSrc);
+	let allComments = [];
+	let listening = btnSrc.dataset.listening;//*
+  let deverb = btnSrc.dataset.deverb;//
+  let notes = btnSrc.dataset.notes;//
+  let reexpress = btnSrc.dataset.reexpress;//*
+  let delivery = btnSrc.dataset.delivery;//*
+  let other = btnSrc.dataset.other;//
+  let evs = btnSrc.dataset.evs;//*
+  let multitask = btnSrc.dataset.multitask;//*
+  let share = btnSrc.dataset.share;
+  let detail = btnSrc.dataset.detail;
+  let comments = 
+
+  destination.innerHTML = destination.innerHTML + comments;
+}
+
+function condenseStuComments(comment){
+	if(comment =! ''{
+
+	})
+}
+
 //optional reflections
 function pp_optional_reflect(value, element){
 	 if(value){
@@ -224,12 +249,13 @@ editButtons.forEach((button) => {
 	button.addEventListener('click', function (event) {
 		let entryid = button.dataset.entryid;	 
 		let comment = button.dataset.comment; 		    
-		
+		let buttonSrc = document.querySelector('#btn-'+entryid);
 		let formEntryId = document.querySelector('#input_4_2');  	     
 	  let formComment = document.querySelector('#input_4_1');
 
 	  formEntryId.value = entryid;
 	  formComment.value = comment;
+	  modalStudentComments(buttonSrc);
 		})
 
 	})
