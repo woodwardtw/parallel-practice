@@ -164,7 +164,8 @@ function pp_list_students(){
           'post_status' => 'publish',
           'posts_per_page' => 50,
           'orderby'     => 'title',
-          'order' => 'ASC'
+          'order' => 'ASC',
+          'category__not_in' => array(4),
     );
 
     $the_query = new WP_Query( $args );
