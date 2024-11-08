@@ -43,9 +43,7 @@ function pp_user_redirection(){
     }
     else if(is_user_logged_in()){
         $user_id = get_current_user_id();
-        $first = wp_get_current_user()->user_firstname;
-        $last = wp_get_current_user()->user_lastname;
-        $slug = strtolower($last . '-' . $first);
+        $slug = sanitize_title(wp_get_current_user()->user_login);
         var_dump($slug);
         var_dump(pp_user_has_role($user_id, 'p_student'));
         var_dump($url . '/student/' . $slug);
