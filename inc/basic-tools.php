@@ -56,7 +56,7 @@ function pp_user_redirection(){
             var_dump($post->post_name);
                 wp_redirect($url . '/student/' . $slug); 
                 exit;
-            }
+            //}
         }
     }
 }
