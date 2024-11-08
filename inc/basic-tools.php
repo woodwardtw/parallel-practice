@@ -54,7 +54,7 @@ function pp_user_redirection(){
         //     if($post->post_name != $slug && $current_url != $url . '/student/' . $slug){
             echo $url . '/student/' . $slug;
             var_dump($post->post_name);
-                wp_redirect($url . '/student/' . $slug); 
+                //wp_redirect($url . '/student/' . $slug); 
                 exit;
             //}
         }
