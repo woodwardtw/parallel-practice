@@ -43,7 +43,9 @@ function pp_user_redirection(){
     }
     else if(is_user_logged_in()){
         $user_id = get_current_user_id();
-        $slug = wp_get_current_user()->user_login;
+        $first = wp_get_current_user()->user_firstname;
+        $last = wp_get_current_user()->user_lastname;
+        $slug = strtolower($last . '-' . $first);
         if(pp_user_has_role($user_id, 'p_student')){
             if($post->post_name != $slug && $current_url != $url . '/student/' . $slug){
                 wp_redirect($url . '/student/' . $slug); 
