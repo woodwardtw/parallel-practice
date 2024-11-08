@@ -46,9 +46,9 @@ function pp_user_redirection(){
         $first = wp_get_current_user()->user_firstname;
         $last = wp_get_current_user()->user_lastname;
         $slug = strtolower($last . '-' . $first);
-        // var_dump($slug);
-        // var_dump(pp_user_has_role($user_id, 'p_student'));
-        // var_dump($url . '/student/' . $slug);
+        var_dump($slug);
+        var_dump(pp_user_has_role($user_id, 'p_student'));
+        var_dump($url . '/student/' . $slug);
 
         if(pp_user_has_role($user_id, 'p_student')){
         //     if($post->post_name != $slug && $current_url != $url . '/student/' . $slug){
