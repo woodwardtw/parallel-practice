@@ -44,14 +44,9 @@ function pp_user_redirection(){
     else if(is_user_logged_in()){
         $user_id = get_current_user_id();
         $slug = sanitize_title(wp_get_current_user()->user_login);
-        var_dump($slug);
-        var_dump(pp_user_has_role($user_id, 'p_student'));
-        var_dump($url . '/student/' . $slug);
-
+        
         if(pp_user_has_role($user_id, 'p_student')){
-            if($post->post_name != $slug && $current_url != $url . '/student/' . $slug){
-            echo $url . '/student/' . $slug;
-            var_dump($post->post_name);
+            if($post->post_name != $slug && $current_url != $url . '/student/' . $slug){         
                 wp_redirect($url . '/student/' . $slug); 
                 exit;
             }
